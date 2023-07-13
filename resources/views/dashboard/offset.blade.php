@@ -15,7 +15,7 @@
                             </div>
                             <div class="tm-title">
                                 <h4>{{$activity->log_name}}</h4>
-                                <span class="time"><i class="ti-time"></i>{{$activity->created_at}}</span>
+                                <span class="time"><i class="ti-time"></i>{{$activity->diff}}</span>
                             </div>
                             <p>{{$activity->description}}</p>
                         </div>

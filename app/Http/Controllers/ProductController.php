@@ -31,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.products.create');
     }
 
     /**

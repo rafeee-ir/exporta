@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Product;
+use App\Models\Supplier;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
@@ -32,7 +35,15 @@ class HomeController extends Controller
 //                ->causedBy(Auth::user())
 //                ->log('Visit Dashboard');
         $activities = Activity::where('causer_id',Auth::id())->latest()->limit(10)->get();
-        return view('dashboard.dashboard',compact('activities'));
+        foreach ($activities as $activity){
+            $date = new Carbon($activity->created_at);
+            $activity->diff = $date->diffForHumans(Carbon::now());
+        }
+        $users_count = User::all()->count();
+        $suppliers_count = Supplier::all()->where('published',true)->where('user_id',Auth::id())->count();
+        $products_count = Product::all()->where('published',true)->where('user_id',Auth::id())->count();
+        $posts_count = Post::all()->where('published',true)->where('user_id',Auth::id())->count();
+        return view('dashboard.dashboard',compact('activities','posts_count','products_count','users_count','suppliers_count'));
     }
 
     public function dashboard_notifications()

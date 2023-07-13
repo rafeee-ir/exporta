@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use App\Http\Requests\StoreSupplierRequest;
 use App\Http\Requests\UpdateSupplierRequest;
+use Carbon\Carbon;
 
 class SupplierController extends Controller
 {
@@ -26,13 +27,17 @@ class SupplierController extends Controller
 //        $s = Supplier::create([
 //            'title' => 'Abystone',
 //        ]);
-        $suppliers = Supplier::latest()->paginate(10);
+        $suppliers = Supplier::latest()->where('published',true)->paginate(10);
         return view('suppliers.index', compact('suppliers'));
     }
 
     public function dashboard_index()
     {
         $suppliers = Supplier::all();
+//        foreach ($suppliers as $supplier){
+//            $date = new Carbon($supplier->funded_at);
+//            $supplier->diff = $date->diffForHumans(Carbon::now());
+//        }
         return view('dashboard.suppliers.index', compact('suppliers'));
     }
 
@@ -41,7 +46,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.suppliers.create');
     }
 
     /**

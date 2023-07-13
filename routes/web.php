@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -37,13 +38,13 @@ Route::get('/services', function () {
     return view('services');
 });
 
-Route::resource('posts',PostController::class);
+//Route::resource('posts',PostController::class);
 //Route::get('/post', function () {
 //    return redirect('/blog');
 //});
 Route::resource('products',ProductController::class);
-Route::resource('suppliers',SupplierController::class);
-
+Route::resource('brands',SupplierController::class);
+Route::get('faq',[FaqController::class, 'index']);
 
 
 
@@ -60,4 +61,12 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
     Route::get('profile', [HomeController::class, 'profile']);
     Route::get('posts', [PostController::class, 'dashboard_index']);
     Route::get('brands', [SupplierController::class, 'dashboard_index']);
+    Route::get('brands/create', [SupplierController::class, 'create']);
+    Route::get('products/create', [ProductController::class, 'create']);
+    Route::get('faqs', [FaqController::class, 'dashboard_index'])->name('faqs.index');
+    Route::get('faqs/create', [FaqController::class, 'create']);
+    Route::post('faqs/create', [FaqController::class, 'store']);
+    Route::delete('faqs/{faq}', [FaqController::class, 'destroy']);
+//    Route::resource('faqs', FaqController::class);
+
 });

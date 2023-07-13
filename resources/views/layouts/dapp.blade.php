@@ -103,6 +103,7 @@
 <!-- others plugins -->
 <script src="{{asset('storage/assets/js/plugins.js')}}"></script>
 <script src="{{asset('storage/assets/js/scripts.js')}}"></script>
+@yield('script')
 </body>
 
 </html>

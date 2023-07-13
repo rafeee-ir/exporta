@@ -23,7 +23,7 @@
     <div class="row">
         @forelse($suppliers as $supplier)
         <div class="col-md-6 mb-3">
-            <a href="{{url('/suppliers',$supplier->slug)}}">
+            <a href="{{url('/brands',$supplier->slug)}}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-5">

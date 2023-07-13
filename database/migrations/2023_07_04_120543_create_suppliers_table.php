@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('title');
             $table->string('slug');
             $table->string('slogan')->nullable();
             $table->text('about')->nullable();
-            $table->date('funded_at')->nullable();
+            $table->string('funded_at')->nullable();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
             $table->string('supplying')->nullable();
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

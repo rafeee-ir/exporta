@@ -286,7 +286,7 @@
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                                                <li class="{{ request()->is('suppliers') ? 'active' : '' }}"><a href="{{ url('/suppliers') }}">Brands</a></li>
+                                                <li class="{{ request()->is('brands') ? 'active' : '' }}"><a href="{{ url('/brands') }}">Brands</a></li>
                                                 <li class="{{ request()->is('products') ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>
 {{--                                                <li class="{{ request()->is('services') ? 'active' : '' }}"><a href="{{ url('/services') }}">Services</a></li>--}}
                                                 <!-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
@@ -295,7 +295,7 @@
                                                         <li><a href="checkout.html">Checkout</a></li>
                                                     </ul>
                                                 </li> -->
-                                                <li class="{{ request()->is('posts') ? 'active' : '' }}"><a href="{{ url('/posts') }}">Posts</a></li>
+{{--                                                <li class="{{ request()->is('posts') ? 'active' : '' }}"><a href="{{ url('/posts') }}">Posts</a></li>--}}
                                                 {{--                                            <li><a href="#">Blog<i class="ti-angle-down"></i></a>--}}
                                                 {{--                                                <ul class="dropdown">--}}
                                                 {{--                                                    <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>--}}
@@ -345,11 +345,11 @@
                         <div class="single-footer links">
                             <h4>Information</h4>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                                <li><a href="#">Help</a></li>
+                                <li><a href="{{url('about')}}">About Us</a></li>
+                                <li><a href="{{url('faq')}}">Faq</a></li>
+{{--                                <li><a href="#">Terms & Conditions</a></li>--}}
+                                <li><a href="{{ url('contact') }}">Contact Us</a></li>
+{{--                                <li><a href="#">Help</a></li>--}}
                             </ul>
                         </div>
                         <!-- End Single Widget -->
