@@ -17,4 +17,8 @@ class SiteController extends Controller
             compact('posts',
                 'products_count','products','set'));
     }
+
+    public function about(){
+        return view('about');
+    }
 }

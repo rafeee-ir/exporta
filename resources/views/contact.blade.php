@@ -30,36 +30,40 @@
                                 <h4>Get in touch</h4>
                                 <h3>Write us a message</h3>
                             </div>
-                            <form class="form" method="post" action="mail/mail.php">
-                                <div class="row">
+                            <form class="form" action="{{route('contact.store')}}" method="post">
+                                @csrf
+                                @include('form-alerts')
+                                @auth
+                                    <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                                @endauth                                <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                            <label>Your Name<span>*</span></label>
-                                            <input name="name" type="text" placeholder="">
+                                            <label>Your Name</label>
+                                            <input class="@if($errors->has('name')) border border-danger @endif" name="name" type="text" placeholder="" value="{{old('name')}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                            <label>Your Subjects<span>*</span></label>
-                                            <input name="subject" type="text" placeholder="">
+                                            <label>Your Subjects</label>
+                                            <input class="@if($errors->has('subject')) border border-danger @endif" name="subject" type="text" placeholder="" value="{{old('subject')}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Your Email<span>*</span></label>
-                                            <input name="email" type="email" placeholder="">
+                                            <input class="@if($errors->has('email')) border border-danger @endif" name="email" type="email" placeholder="" value="{{old('email')}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                            <label>Your Phone<span>*</span></label>
-                                            <input name="company_name" type="text" placeholder="">
+                                            <label>Your Phone</label>
+                                            <input class="@if($errors->has('mobile')) border border-danger @endif" name="mobile" type="text" placeholder="" value="{{old('mobile')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group message">
                                             <label>your message<span>*</span></label>
-                                            <textarea name="message" placeholder=""></textarea>
+                                            <textarea class="@if($errors->has('message')) border border-danger @endif" name="message" placeholder="">{{old('message')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -77,23 +81,23 @@
                                 <i class="fa fa-phone"></i>
                                 <h4 class="title">Call us Now:</h4>
                                 <ul>
-                                    <li>+123 456-789-1120</li>
-                                    <li>+522 672-452-1120</li>
+                                    <li>Soon</li>
+                                    {{--                                    <li>+522 672-452-1120</li>--}}
                                 </ul>
                             </div>
                             <div class="single-info">
                                 <i class="fa fa-envelope-open"></i>
                                 <h4 class="title">Email:</h4>
                                 <ul>
-                                    <li><a href="mailto:info@exporta.com">info@exporta.com</a></li>
-                                    <li><a href="mailto:info@exporta.com">support@exporta.com</a></li>
+                                    <li><a href="mailto:info@exportaworld.com">info@exportaworld.com</a></li>
+                                    <li><a href="mailto:sales@exportaworld.com">sales@exportaworld.com</a></li>
                                 </ul>
                             </div>
                             <div class="single-info">
                                 <i class="fa fa-location-arrow"></i>
                                 <h4 class="title">Our Address:</h4>
                                 <ul>
-                                    <li>KA-62/1, Travel Agency, 45 Grand Central Terminal, New York.</li>
+                                    <li>3 Jacinth Court, Huddersfield, West Yorkshire, HD2 1DT</li>
                                 </ul>
                             </div>
                         </div>
@@ -103,33 +107,5 @@
         </div>
     </section>
     <!--/ End Contact -->
-
-{{--    <!-- Map Section -->--}}
-{{--    <div class="map-section">--}}
-{{--        <div id="myMap"></div>--}}
-{{--    </div>--}}
-{{--    <!--/ End Map Section -->--}}
-
-    <!-- Start Shop Newsletter  -->
-    <section class="shop-newsletter section">
-        <div class="container">
-            <div class="inner-top">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-12">
-                        <!-- Start Newsletter Inner -->
-                        <div class="inner">
-                            <h4>Newsletter</h4>
-                            <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
-                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
-                                <button class="btn">Subscribe</button>
-                            </form>
-                        </div>
-                        <!-- End Newsletter Inner -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Shop Newsletter -->
+@include('newsletter')
 @endsection

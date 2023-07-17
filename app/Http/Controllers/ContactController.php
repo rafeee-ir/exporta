@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('contact');
     }
 
     /**
@@ -30,9 +30,11 @@ class ContactController extends Controller
     public function store(StoreContactRequest $request)
     {
         $request->validate([
-            'name' => 'min:3',
-            'email' => 'required|min:5',
-            'description' => 'required|min:10'
+//            'name' => 'min:3',
+//            'subject' => 'min:3',
+//            'mobile' => 'min:7',
+            'email' => 'required|email',
+            'message' => 'required|min:10'
         ]);
 
         try {
@@ -54,7 +56,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        $contact->incVisit();
+        //
     }
 
     /**

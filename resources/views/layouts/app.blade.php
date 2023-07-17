@@ -300,6 +300,7 @@
                                                 {{--                                                </ul>--}}
                                                 {{--                                            </li>--}}
 {{--                                                <li class="{{ request()->is('pricing') ? 'active' : '' }}"><a href="{{ url('/pricing') }}">Pricing</a></li>--}}
+                                                <li class="{{ request()->is('faq') ? 'active' : '' }}"><a href="{{ url('/faq') }}">FAQ</a></li>
                                                 <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ url('/contact') }}">Contact Us</a></li>
                                             </ul>
                                         </div>
@@ -332,9 +333,9 @@
                                 <a href="{{url('/')}}"><img src="{{asset('storage/images/logo2.png')}}" alt="#"></a>
                             </div>
                             <p class="text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                We at Exportaworld have provided different products that you may choose your desired quality and quantity. We are not distributor but exporter.
                             </p>
-                            <p class="call">Got Question? Send IM 24/7<span><a href="#">+0123 456 789</a></span></p>
+                            <p class="call">Got Question? Send us 24/7<span><a href="{{route('contact.index')}}">Contact us</a></span></p>
                         </div>
                         <!-- End Single Widget -->
                     </div>
@@ -371,10 +372,11 @@
                             <!-- Single Widget -->
                             <div class="contact">
                                 <ul>
-                                    <li>NO. 342 - London Oxford Street.</li>
-                                    <li>012 United Kingdom.</li>
-                                    <li>info@exporta.com</li>
-                                    <li>+032 3456 1111</li>
+                                    3 Jacinth Court, Huddersfield, West Yorkshire, HD2 1DT
+                                    <li>3 Jacinth Court, Huddersfield,</li>
+                                    <li>West Yorkshire, HD2 1DT</li>
+                                    <li><a href="mailto=info@exportaworld.com">info@exportaworld.com</a></li>
+{{--                                    <li>+032 3456 1111</li>--}}
                                 </ul>
                             </div>
                             <!-- End Single Widget -->

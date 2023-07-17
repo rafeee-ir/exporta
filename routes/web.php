@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiteController;
@@ -34,8 +35,12 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
+Route::get('/about', [SiteController::class, 'about'])->name('about.index');
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 Route::get('products',[ProductController::class,'index'])->name('products.index');
 Route::get('products/{product}',[ProductController::class,'show'])->name('products.show');

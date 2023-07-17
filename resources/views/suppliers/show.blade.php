@@ -105,21 +105,33 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name" class="form-label">Name</label>
+                                            <label for="name" class="form-label">Your Name</label>
                                             <input value="{{old('name')}}" type="text" class="form-control @if($errors->has('name')) border border-danger @endif" id="name" name="name" placeholder="John Duo">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email" class="form-label">Email*</label>
+                                            <label for="subject" class="form-label">Your Subject</label>
+                                            <input value="{{old('subject')}}" type="text" class="form-control @if($errors->has('subject')) border border-danger @endif" id="subject" name="subject" placeholder="Buy Someting..">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Your Email<span>*</span></label>
                                             <input value="{{old('email')}}" type="email" class="form-control @if($errors->has('email')) border border-danger @endif" id="email" name="email" placeholder="info@exportaworld.com">
                                             <small class="text-light">*Required</small>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="mobile" class="form-label">Your Mobile</label>
+                                            <input value="{{old('mobile')}}" type="tel" class="form-control @if($errors->has('mobile')) border border-danger @endif" id="mobile" name="mobile" placeholder="+1800451245">
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="description" class="form-label">Description</label>
-                                            <textarea name="description" class="form-control @if($errors->has('description')) border border-danger @endif" rows="5" placeholder="Tell us what do you need to know?">{{old('description')}}</textarea>
+                                            <label for="message" class="form-label">Your Message<span>*</span></label>
+                                            <textarea name="message" class="form-control @if($errors->has('message')) border border-danger @endif" rows="5" placeholder="Tell us what do you need to know?">{{old('description')}}</textarea>
                                         </div>
                                     </div>
                                 </div>
