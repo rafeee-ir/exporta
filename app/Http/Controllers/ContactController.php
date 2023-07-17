@@ -2,17 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 
 class ContactController extends Controller
 {
     /**
-     * Show contact us page.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * Display a listing of the resource.
      */
     public function index()
     {
-        return view('contact');
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreContactRequest $request)
+    {
+        $request->validate([
+            'name' => 'min:3',
+            'email' => 'required|min:5',
+            'description' => 'required|min:10'
+        ]);
+
+        try {
+
+
+            $contact = Contact::create($request->all());
+
+            activity('Contact form added')
+                ->performedOn($contact)
+                ->log($contact->name . ' added a new contact request by ' . $contact->email);
+            return redirect(url()->previous() . '#contact')->with('success', 'Contact form sent successfully');
+        }catch(\Exception $e){
+            return redirect(url()->previous() . '#contact')->with('error','Something goes wrong!');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Contact $contact)
+    {
+        $contact->incVisit();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Contact $contact)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateContactRequest $request, Contact $contact)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Contact $contact)
+    {
+        //
     }
 }

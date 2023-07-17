@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('featured_image')->nullable();
             $table->integer('comments_count')->nullable();
             $table->integer('user_id');
-            $table->integer('visit_count')->default('0');
+            $table->bigInteger('visited')->default('0');
             $table->boolean('published')->default(false);
             $table->timestamps();
         });

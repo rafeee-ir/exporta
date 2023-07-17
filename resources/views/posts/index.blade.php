@@ -31,7 +31,7 @@
                             <div class="col-md-6 col-12 mb-4" style="margin-top: 30px">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog">
-                                    <a href="{{url('/post',$post->id)}}" title="{{$post->visit_count}} view">
+                                    <a href="{{url('/post',$post->id)}}" title="{{$post->visited}} view">
                                         <img src="@if(isset($post->featured_image)){{asset('storage/images/',$post->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$post->title}}">
                                     </a>
                                     <div class="content">

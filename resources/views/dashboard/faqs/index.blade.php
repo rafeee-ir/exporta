@@ -13,9 +13,9 @@
                         <div class="">
                             <div class="card-body">
                                 <h4 class="header-title mb-4">Frequently asked questions (FAQ)</h4>
-                                @if (session('alert'))
+                                @if (session('success'))
                                     <div class="alert alert-success">
-                                        {{ session('alert') }}
+                                        {{ session('success') }}
                                     </div>
                                 @endif
                                 <div class="list-group list-group-flush">

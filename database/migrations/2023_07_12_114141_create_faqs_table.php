@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('question');
             $table->string('answer');
             $table->integer('user_id');
+            $table->bigInteger('visited')->default('0');
             $table->timestamps();
         });
     }

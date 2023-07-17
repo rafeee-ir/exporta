@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Supplier;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -13,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(20);
+        $products = Product::latest()->where('published',true)->paginate(20);
 
         return view('products.index',compact('products'));
     }
@@ -31,7 +33,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard.products.create');
+        $suppliers = Supplier::all();
+        return view('dashboard.products.create',compact('suppliers'));
     }
 
     /**
@@ -39,7 +42,11 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = Product::create($request->all());
+        activity('Product added')
+            ->performedOn($product)
+            ->log(Auth::user()->name . ' added ' . $product->title . ' as a new product.');
+        return redirect(route('dashboardproducts.index'))->with('success','Product added successfully');
     }
 
     /**
@@ -48,6 +55,10 @@ class ProductController extends Controller
     public function show($product)
     {
         $product = Product::where('slug','=',$product)->first();
+        $product->visited++;
+        $product->save();
+//        $product->incVisit();
+
         return view('products.show', compact('product'));
     }
 
@@ -70,8 +81,18 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
-        //
+        $product = Product::find($product);
+        $product->delete();
+        activity('Brand deleted')
+            ->performedOn($product)
+            ->log(Auth::user()->name . ' deleted '. $product->title .' product.');
+        return redirect(route('dashboardproducts.index'))->with('success','Product deleted successfully');
+    }
+
+    public function incVisit(){
+        $this->visited++;
+        return $this->save();
     }
 }

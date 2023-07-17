@@ -21,12 +21,13 @@ return new class extends Migration
             $table->integer('categories')->nullable();
             $table->integer('labels')->nullable();
             $table->integer('supplier_id')->default(1);
-            $table->integer('minimum_order_qty')->nullable();
-            $table->integer('production_capacity')->nullable();
+            $table->string('minimum_order_qty')->nullable();
+            $table->string('production_capacity')->nullable();
             $table->string('sample')->nullable();
             $table->integer('price_fob')->nullable();
             $table->string('price_currency')->default('USD')->nullable();
             $table->boolean('published')->default(false);
+            $table->bigInteger('visited')->default('0');
             $table->timestamps();
         });
     }

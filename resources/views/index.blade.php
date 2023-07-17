@@ -13,10 +13,10 @@
                         <div class="row">
                             <div class="col-lg-7 col-12">
                                 <div class="hero-text">
-                                    <h1><span>New Products </span>+128 New Arrivals</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <h1><span>{{$set->main_banner_subtitle}} </span>{{$products_count}} New Arrivals</h1>
+                                    <p>{{$set->main_banner_text}}</p>
                                     <div class="button">
-                                        <a href="#" class="btn">Explore Now!</a>
+                                        <a href="{{route('products.index')}}" class="btn">{{$set->main_banner_button_text}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -88,6 +88,53 @@
 
 
 
+<!-- Start Shop The Latest Products  -->
+<section class="shop-blog section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>The Latest Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @forelse($products as $product)
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" style="margin-top: 30px">
+                    <!-- Start Single Blog  -->
+                    <div class="shop-single-blog">
+                        <a href="{{url('/products',$product->id)}}" title="{{$product->visited}} view">
+                            <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/',$product->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$product->title}}">
+                        </a>
+                        <div class="content">
+                            <p class="date">{{$product->created_at}}</p>
+                            <a href="{{url('/products',$product->id)}}" class="title">{{$product->title}}</a>
+                            <p class="card-text mb-4">{{strip_tags(Str::limit($product->description,50))}}</p>
+                            <a href="{{url('/products',$product->id)}}" class="more-btn">Continue Reading</a>
+                        </div>
+                    </div>
+                    <!-- End Single Blog  -->
+                </div>
+            @empty
+                    There is no post here
+            @endforelse
+                <div class="col-12">
+{{--                    <div class="row justify-content-center">--}}
+{{--                        <div class="col-md-4">--}}
+                            <div class="text-center">
+                                <a href="{{route('products.index')}}" class="btn btn-primary" type="button">Visit All Products <i class="ti ti-angle-right"></i></a>
+                            </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+                </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop The Latest Products  -->
+
+
+
+
 <!-- Start Shop Blog  -->
 <section class="shop-blog section">
     <div class="container">
@@ -100,15 +147,16 @@
         </div>
         <div class="row">
             @forelse($posts as $post)
-                <div class="col-md-4 col-12 mb-4" style="margin-top: 30px">
+                <div class="col-lg-4 col-md-6 col-12 mb-4" style="margin-top: 30px">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
-                        <a href="{{url('/post',$post->id)}}" title="{{$post->visit_count}} view">
+                        <a href="{{url('/post',$post->id)}}" title="{{$post->visited}} view">
                             <img src="@if(isset($post->featured_image)){{asset('storage/images/',$post->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$post->title}}">
                         </a>
                         <div class="content">
                             <p class="date">{{$post->created_at}}</p>
                             <a href="{{url('/post',$post->id)}}" class="title">{{$post->title}}</a>
+                            <p class="card-text mb-4">{{strip_tags(Str::limit($post->content,50))}}</p>
                             <a href="{{url('/post',$post->id)}}" class="more-btn">Continue Reading</a>
                         </div>
                     </div>
@@ -117,6 +165,7 @@
             @empty
                     There is no post here
             @endforelse
+
         </div>
     </div>
 </section>

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('banner')->nullable();
             $table->string('supplying')->nullable();
             $table->boolean('published')->default(false);
+            $table->bigInteger('visited')->default('0');
             $table->timestamps();
         });
     }

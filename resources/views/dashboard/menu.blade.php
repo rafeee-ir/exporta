@@ -19,7 +19,7 @@
                         </ul>
                     </li>
 
-                    <li class="{{ request()->is('dashboard/posts') ? 'active' : '' }}">
+                    <li class="{{ request()->is('dashboard/posts*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-grid2-thumb"></i><span>Posts</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/posts') ? 'active' : '' }}"><a href="{{url('dashboard/posts')}}">All Posts</a></li>
@@ -29,7 +29,7 @@
 {{--                            <li><a href="#">Comments</a></li>--}}
                         </ul>
                     </li>
-                    <li class="{{ request()->is('dashboard/brands') ? 'active' : '' }}">
+                    <li class="{{ request()->is('dashboard/brands*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-apple"></i><span>Brands</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/brands') ? 'active' : '' }}"><a href="{{url('dashboard/brands')}}">All Brands</a></li>
@@ -37,7 +37,7 @@
 {{--                            <li><a href="#">Categories</a></li>--}}
                         </ul>
                     </li>
-                    <li class="{{ request()->is('dashboard/products') ? 'active' : '' }}">
+                    <li class="{{ request()->is('dashboard/products*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-package"></i><span>Products</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/products') ? 'active' : '' }}"><a href="{{url('dashboard/products')}}">All Products</a></li>
@@ -46,14 +46,14 @@
 {{--                            <li><a href="#">Labels</a></li>--}}
                         </ul>
                     </li>
-                    <li class="{{ request()->is('dashboard/users') ? 'active' : '' }}">
+                    <li class="{{ request()->is('dashboard/users*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i><span>Users</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/users') ? 'active' : '' }}"><a href="{{url('dashboard/users')}}">Users</a></li>
 {{--                            <li><a href="#">New User</a></li>--}}
                         </ul>
                     </li>
-                    <li class="{{ request()->is('dashboard/faqs') ? 'active' : '' }}">
+                    <li class="{{ request()->is('dashboard/faqs*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-help"></i><span>FAQs</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/faqs') ? 'active' : '' }}"><a href="{{url('dashboard/faqs')}}">FAQs</a></li>

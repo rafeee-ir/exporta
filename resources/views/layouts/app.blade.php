@@ -63,8 +63,8 @@
                         <!-- Top Left -->
                         <div class="top-left">
                             <ul class="list-main">
-                                <li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-                                <li><i class="ti-email"></i> support@exporta.com</li>
+{{--                                <li><i class="ti-headphone-alt"></i> Soon</li>--}}
+                                <li><a href="{{url('contact')}}"><i class="ti-email"></i> info@exporta.com</a></li>
                             </ul>
                         </div>
                         <!--/ End Top Left -->
@@ -79,11 +79,11 @@
                                 @if (Route::has('login'))
                                     @auth
                                         <li><i class="ti-dashboard"></i> <a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                                    @else
-                                        <li><i class="ti-power-off"></i><a href="{{ route('login') }}">Login</a></li>
-                                        @if (Route::has('register'))
-                                            <li><i class="ti-user"></i><a href="{{ route('register') }}">Register</a></li>
-                                        @endif
+{{--                                    @else--}}
+{{--                                        <li><i class="ti-power-off"></i><a href="{{ route('login') }}">Login</a></li>--}}
+{{--                                        @if (Route::has('register'))--}}
+{{--                                            <li><i class="ti-user"></i><a href="{{ route('register') }}">Register</a></li>--}}
+{{--                                        @endif--}}
                                     @endauth
                                 @endif
                             </ul>
@@ -121,22 +121,22 @@
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected">All Category</option>
-                                    <option>Animal & Animal Products</option>
-                                    <option>Vegetable Products</option>
-                                    <option>Foodstuffs</option>
-                                    <option>Mineral Products</option>
-                                    <option>Chemicals & Allied Industries</option>
-                                    <option>Plastics / Rubbers</option>
-                                    <option>Raw Hides, Skins, Leather, & Furs</option>
-                                    <option>Wood & Wood Products</option>
-                                    <option>Textiles</option>
-                                    <option>Footwear / Headgear</option>
-                                    <option>Stone / Glass</option>
-                                    <option>Metals</option>
-                                    <option>Machinery / Electrical</option>
-                                </select>
+{{--                                <select>--}}
+{{--                                    <option selected="selected">All Category</option>--}}
+{{--                                    <option>Animal & Animal Products</option>--}}
+{{--                                    <option>Vegetable Products</option>--}}
+{{--                                    <option>Foodstuffs</option>--}}
+{{--                                    <option>Mineral Products</option>--}}
+{{--                                    <option>Chemicals & Allied Industries</option>--}}
+{{--                                    <option>Plastics / Rubbers</option>--}}
+{{--                                    <option>Raw Hides, Skins, Leather, & Furs</option>--}}
+{{--                                    <option>Wood & Wood Products</option>--}}
+{{--                                    <option>Textiles</option>--}}
+{{--                                    <option>Footwear / Headgear</option>--}}
+{{--                                    <option>Stone / Glass</option>--}}
+{{--                                    <option>Metals</option>--}}
+{{--                                    <option>Machinery / Electrical</option>--}}
+{{--                                </select>--}}
                                 <form>
                                     <input name="search" placeholder="Search Products Here..." type="search">
                                     <button class="btnn"><i class="ti-search"></i></button>
@@ -148,10 +148,10 @@
                         <div class="right-bar">
                             <!-- Search Form -->
                             <div class="sinlge-bar">
-                                <a href="{{ url('/favorites') }}" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
                             <div class="sinlge-bar">
-                                <a href="{{ url('/profile') }}" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                             </div>
                             @auth
                                 <div class="sinlge-bar">
@@ -262,19 +262,17 @@
                                             </li>
                                         </ul>
                                     </li> -->
-                                    <li><a href="#">Animal & Animal Products</a></li>
-                                    <li><a href="#">Vegetable Products</a></li>
-                                    <li><a href="#">Foodstuffs</a></li>
-                                    <li><a href="#">Mineral Products</a></li>
-                                    <li><a href="#">Chemicals & Allied Industries</a></li>
-                                    <li><a href="#">Plastics / Rubbers</a></li>
-                                    <li><a style="font-size: 0.8rem;" href="#">Raw Hides, Skins, Leather, & Furs</a></li>
-                                    <li><a href="#">Wood & Wood Products</a></li>
-                                    <li><a href="#">Textiles</a></li>
-                                    <li><a href="#">Footwear / Headgear</a></li>
-                                    <li><a href="#">Stone / Glass</a></li>
-                                    <li><a href="#">Metals</a></li>
-                                    <li><a href="#">Machinery / Electrical</a></li>
+                                    <li><a href="#">Furniture and interior decoration</a></li>
+{{--                                    <li><a href="#">Food and grocery</a></li>--}}
+{{--                                    <li><a href="#">Kitchen appliance</a></li>--}}
+{{--                                    <li><a href="#">Catering equipment</a></li>--}}
+{{--                                    <li><a href="#">Health and beauty</a></li>--}}
+                                    <li><a href="#">Handicrafts and decorative</a></li>
+{{--                                    <li><a href="#">Clothes, shoes and accessories</a></li>--}}
+{{--                                    <li><a href="#">Sport equipment</a></li>--}}
+{{--                                    <li><a href="#">Toys, children and baby</a></li>--}}
+{{--                                    <li><a href="#">Petrochemicals</a></li>--}}
+                                    <li><a href="#">Construction material and equipment</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -448,6 +446,7 @@
 <script src="{{asset('storage/js/easing.js')}}"></script>
 <!-- Active JS -->
 <script src="{{asset('storage/js/active.js')}}"></script>
+@yield('script')
 
 
 </body>

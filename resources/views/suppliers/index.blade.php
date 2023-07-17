@@ -27,7 +27,7 @@
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-5">
-                    <img src="@if(isset($supplier->logo)){{asset('storage/images/',$supplier->logo)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$supplier->title}}">
+                    <img src="@if(isset($supplier->logo)){{asset('storage/uploads/suppliers/'.$supplier->logo)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$supplier->title}}">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">

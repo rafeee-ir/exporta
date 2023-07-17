@@ -55,7 +55,7 @@ class FaqController extends Controller
         activity('FAQ added')
                 ->performedOn($faq)
                 ->log(Auth::user()->name . ' added new FAQ.');
-        return redirect(route('dashboardfaqs.index'))->with('alert','FAQ published successfully');
+        return redirect(route('dashboardfaqs.index'))->with('success','FAQ published successfully');
     }
 
     /**
@@ -91,7 +91,7 @@ class FaqController extends Controller
         activity('FAQ deleted')
             ->performedOn($faq)
             ->log(Auth::user()->name . ' deleted a FAQ.');
-        return redirect(route('dashboardfaqs.index'))->with('alert','FAQ deleted successfully');
+        return redirect(route('dashboardfaqs.index'))->with('success','FAQ deleted successfully');
 
     }
 }
