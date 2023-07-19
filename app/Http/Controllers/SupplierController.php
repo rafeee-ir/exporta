@@ -12,13 +12,16 @@ use Illuminate\Support\Facades\Auth;
 class SupplierController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('permission:supplier-list|supplier-create|supplier-edit|supplier-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:supplier-create', ['only' => ['create','store']]);
+        $this->middleware('permission:supplier-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:supplier-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

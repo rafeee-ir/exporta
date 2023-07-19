@@ -17,7 +17,10 @@ class FaqController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('permission:faq-list|faq-create|faq-edit|faq-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:faq-create', ['only' => ['create','store']]);
+        $this->middleware('permission:faq-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:faq-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

@@ -7,14 +7,18 @@ use App\Models\Post;
 class PostController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('permission:post-list|post-create|post-edit|post-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:post-create', ['only' => ['create','store']]);
+        $this->middleware('permission:post-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:post-delete', ['only' => ['destroy']]);
     }
+
     public function index()
     {
         $posts = Post::latest()->paginate(10);

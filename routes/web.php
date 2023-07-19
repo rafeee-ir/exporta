@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -29,11 +30,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[SiteController::class,'homepage'])->name('homepage');
 
 Auth::routes();
-Auth::routes([
-    'register' => false, // Registration Routes...
-    'reset' => false, // Password Reset Routes...
-    'verify' => false, // Email Verification Routes...
-]);
+//Auth::routes([
+//    'register' => false, // Registration Routes...
+//    'reset' => false, // Password Reset Routes...
+//    'verify' => false, // Email Verification Routes...
+//]);
 
 Route::get('/about', [SiteController::class, 'about'])->name('about.index');
 
@@ -65,6 +66,9 @@ Route::get('/home',
 
 Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(function() {
 
+    Route::resource('users', UserController::class);
+    Route::resource('roles', RoleController::class);
+
     Route::get('notifications', [HomeController::class, 'dashboard_notifications']);
 
     Route::get('profile', [HomeController::class, 'profile']);
@@ -91,9 +95,9 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
     Route::post('posts/create', [PostController::class, 'store'])->name('posts.store');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-    Route::get('users', [UserController::class, 'dashboard_index'])->name('users.index');
-    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('users/create', [UserController::class, 'store'])->name('users.store');
-    Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+//    Route::get('users', [UserController::class, 'dashboard_index'])->name('users.index');
+//    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+//    Route::post('users/create', [UserController::class, 'store'])->name('users.store');
+//    Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 });

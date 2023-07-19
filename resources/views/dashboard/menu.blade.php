@@ -18,6 +18,7 @@
 {{--                            <li class="{{ request()->is('dashboard/notifications') ? 'active' : '' }}"><a href="{{url('dashboard/notifications')}}">All Notifications</a></li>--}}
                         </ul>
                     </li>
+                    @can('post-list')
 
                     <li class="{{ request()->is('dashboard/posts*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-grid2-thumb"></i><span>Posts</span></a>
@@ -29,37 +30,57 @@
 {{--                            <li><a href="#">Comments</a></li>--}}
                         </ul>
                     </li>
+                    @endcan
+                    @can('supplier-list')
                     <li class="{{ request()->is('dashboard/brands*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-apple"></i><span>Brands</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/brands') ? 'active' : '' }}"><a href="{{url('dashboard/brands')}}">All Brands</a></li>
+                            @can('supplier-create')
                             <li class="{{ request()->is('dashboard/brands/create') ? 'active' : '' }}"><a href="{{url('dashboard/brands/create')}}">New Brand</a></li>
-{{--                            <li><a href="#">Categories</a></li>--}}
+                            @endcan
+                                {{--                            <li><a href="#">Categories</a></li>--}}
                         </ul>
                     </li>
+                    @endcan
+                    @can('product-list')
                     <li class="{{ request()->is('dashboard/products*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-package"></i><span>Products</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/products') ? 'active' : '' }}"><a href="{{url('dashboard/products')}}">All Products</a></li>
+                            @can('product-create')
                             <li class="{{ request()->is('dashboard/products/create') ? 'active' : '' }}"><a href="{{url('dashboard/products/create')}}">New Product</a></li>
+                            @endcan
 {{--                            <li><a href="#">Categories</a></li>--}}
 {{--                            <li><a href="#">Labels</a></li>--}}
                         </ul>
                     </li>
-                    <li class="{{ request()->is('dashboard/users*') ? 'active' : '' }}">
+                    @endcan
+                    @canany(['user-list','role-list'])
+                    <li class="{{ request()->is('dashboard/users*') || request()->is('dashboard/roles*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i><span>Users</span></a>
                         <ul class="collapse">
-                            <li class="{{ request()->is('dashboard/users') ? 'active' : '' }}"><a href="{{url('dashboard/users')}}">Users</a></li>
-{{--                            <li><a href="#">New User</a></li>--}}
+                            <li class="{{ request()->is('dashboard/users*') && !request()->is('dashboard/users/create') ? 'active' : '' }}"><a href="{{url('dashboard/users')}}">Users</a></li>
+                            @can('user-create')
+                            <li class="{{ request()->is('dashboard/users/create') ? 'active' : '' }}"><a href="{{url('dashboard/users/create')}}">New User</a></li>
+                            @endcan
+                                @role('Admin')
+                            <li class="{{ request()->is('dashboard/roles*') ? 'active' : '' }}"><a href="{{url('dashboard/roles')}}">Roles</a></li>
+                            @endrole
                         </ul>
                     </li>
+                    @endcanany
+                    @can('faq-list')
                     <li class="{{ request()->is('dashboard/faqs*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-help"></i><span>FAQs</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/faqs') ? 'active' : '' }}"><a href="{{url('dashboard/faqs')}}">FAQs</a></li>
+                            @can('faq-create')
                             <li class="{{ request()->is('dashboard/faqs/create') ? 'active' : '' }}"><a href="{{url('dashboard/faqs/create')}}">New FAQ</a></li>
+                            @endcan
                         </ul>
                     </li>
+                    @endcan
 {{--                    <li>--}}
 {{--                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-settings"></i><span>Setting</span></a>--}}
 {{--                        <ul class="collapse">--}}
