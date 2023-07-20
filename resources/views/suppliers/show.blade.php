@@ -10,7 +10,7 @@
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="{{url('/')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li><a href="{{url('/suppliers')}}">Brands<i class="ti-arrow-right"></i></a></li>
+                            <li><a href="{{url('/brands')}}">Brands<i class="ti-arrow-right"></i></a></li>
                             <li class="active"><a href="">{{$supplier->title}}</a></li>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@
         @include('form-alerts')
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="@if(isset($supplier->banner)){{asset('storage/uploads/suppliers/'.$supplier->banner)}}@else https://placehold.co/700x500?text=BRAND20%BANNER @endif" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                <img src="@if(isset($supplier->banner)){{asset('storage/uploads/suppliers/'.$supplier->banner)}}@else https://placehold.co/700x500?text=BRAND20%BANNER @endif" class="d-block mx-lg-auto img-fluid" alt="{{$supplier->title}}" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
                 <img class="d-block mb-4" src="@if(isset($supplier->logo)){{asset('storage/uploads/suppliers/'.$supplier->logo)}}@else https://placehold.co/300x300?text=LOGO @endif" alt="" width="72">
