@@ -33,7 +33,9 @@
                             <form class="form" action="{{route('contact.store')}}" method="post">
                                 @csrf
                                 @include('form-alerts')
-                                @auth
+                                <input type="hidden" name="url" value="{{url()->current()}}">
+
+                            @auth
                                     <input type="hidden" name="user_id" value="{{Auth::id()}}">
                                 @endauth                                <div class="row">
                                     <div class="col-lg-6 col-12">

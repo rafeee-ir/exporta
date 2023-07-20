@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -66,6 +67,12 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
 
+
+        activity('New user added')
+            ->performedOn($user)
+            ->log(Auth::user()->name . ' added ' . $user->name . ' as a new user.');
+
+
         return redirect()->route('dashboardusers.index')
             ->with('success','User created successfully');
     }
@@ -126,6 +133,10 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
+        activity('User updated')
+            ->performedOn($user)
+            ->log(Auth::user()->name . ' updated profile of ' . $user->name);
+
         return redirect()->route('dashboardusers.index')
             ->with('success','User updated successfully');
     }
@@ -138,7 +149,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $userM = User::find($id);
         User::find($id)->delete();
+        activity('User deleted')
+            ->performedOn($userM)
+            ->log(Auth::user()->name . ' deleted profile of ' . $userM->name);
         return redirect()->route('dashboardusers.index')
             ->with('success','User deleted successfully');
     }

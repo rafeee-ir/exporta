@@ -29,16 +29,11 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        $request->validate([
-//            'name' => 'min:3',
-//            'subject' => 'min:3',
-//            'mobile' => 'min:7',
-            'email' => 'required|email',
-            'message' => 'required|min:10'
-        ]);
-
         try {
-
+            $request->validate([
+                'email' => 'required|email',
+                'message' => 'required|min:10'
+            ]);
 
             $contact = Contact::create($request->all());
 

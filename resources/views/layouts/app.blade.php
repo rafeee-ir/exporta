@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="{{asset('storage/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('storage/css/responsive.css')}}">
 
+    @yield('style')
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

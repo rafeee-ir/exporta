@@ -18,7 +18,7 @@ class SupplierController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:supplier-list|supplier-create|supplier-edit|supplier-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:supplier-list|supplier-create|supplier-edit|supplier-delete', ['only' => ['dashboard_index']]);
         $this->middleware('permission:supplier-create', ['only' => ['create','store']]);
         $this->middleware('permission:supplier-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:supplier-delete', ['only' => ['destroy']]);
@@ -105,9 +105,12 @@ class SupplierController extends Controller
     public function show($supplier)
     {
 
-        $supplier = Supplier::where('slug','=',$supplier)->first();
-        $products = Product::where('supplier_id','=',$supplier->id)->get();
-        return view('suppliers.show', compact('supplier','products'));
+        $supplier = Supplier::where('slug',$supplier)->with('products')->first();
+        if ($supplier->published == true){
+            return view('suppliers.show', compact('supplier'));
+        }else{
+            return back();
+        }
     }
 
     /**

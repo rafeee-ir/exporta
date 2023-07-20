@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['dashboard_index']]);
         $this->middleware('permission:product-create', ['only' => ['create','store']]);
         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
@@ -54,11 +54,46 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all());
-        activity('Product added')
-            ->performedOn($product)
-            ->log(Auth::user()->name . ' added ' . $product->title . ' as a new product.');
-        return redirect(route('dashboardproducts.index'))->with('success','Product added successfully');
+        $input = $request->all();
+
+        $request->validate([
+            'featured_image' => 'mimes:png,jpg,jpeg|max:2048',
+//            'slider_images' => 'mimes:png,jpg,jpeg|max:2048',
+            'title' => 'required',
+            'supplier_id' => 'required|not_in:0',
+            'description' => 'required|min:20'
+        ]);
+//        try {
+            if(isset($request->featured_image)){
+                $featured_imageName = $request->title . '_image_' . rand(1000,9999) . '.' . $request->featured_image->extension();
+                $request->featured_image->move(public_path('storage/uploads/products'), $featured_imageName);
+            }else{
+                $featured_imageName = null;
+            }
+            $slider_images = array();
+            if(isset($request->slider_images)) {
+
+                if ($files = $request->file('slider_images')) {
+                    foreach ($files as $file) {
+                        $slider_imagesNames = $request->title . '_slider_' . rand(1000,9999) . '.' . $file->extension();
+                        $file->move(public_path('storage/uploads/products'), $slider_imagesNames);
+                        $slider_images[] = $slider_imagesNames;
+                    }
+                }
+            }
+        $input['featured_image'] = $featured_imageName;
+        $input['slider_images'] = implode("|",$slider_images);
+//        dd($request->slider_images);
+
+            $product = Product::create($input);
+            activity('Product added')
+                ->performedOn($product)
+                ->log(Auth::user()->name . ' added ' . $product->title . ' as a new product.');
+            return redirect(route('dashboardproducts.index'))->with('success','Product added successfully');
+//        }catch(\Exception $e){
+//            return redirect()->back()->with('error','Something goes wrong!');
+//        }
+
     }
 
     /**
@@ -66,12 +101,10 @@ class ProductController extends Controller
      */
     public function show($product)
     {
-        $product = Product::where('slug','=',$product)->first();
-        $product->visited++;
-        $product->save();
-//        $product->incVisit();
-
-        return view('products.show', compact('product'));
+        $product = Product::where('slug','=',$product)->where('published',true)->with('supplier')->first();
+        $slider = array();
+        $slider = explode('|',$product->slider_images);
+        return view('products.show', compact('product','slider'));
     }
 
     /**
@@ -103,8 +136,4 @@ class ProductController extends Controller
         return redirect(route('dashboardproducts.index'))->with('success','Product deleted successfully');
     }
 
-    public function incVisit(){
-        $this->visited++;
-        return $this->save();
-    }
 }

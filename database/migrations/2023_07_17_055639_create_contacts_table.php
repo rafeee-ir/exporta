@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('email');
             $table->text('message');
+            $table->text('url')->nullable();
             $table->timestamps();
         });
     }
