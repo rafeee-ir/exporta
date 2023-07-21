@@ -39,7 +39,7 @@
             <!-- Single Banner  -->
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="single-banner">
-                    <img src="{{asset('storage/images/cup.jpg')}}" alt="#">
+                    <img src="{{url('images/cup.jpg')}}" alt="#">
                     <div class="content">
                         <p>White Label</p>
                         <h3>Use your <br>own<span> BRAND</span></h3>
@@ -51,7 +51,7 @@
             <!-- Single Banner  -->
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="single-banner">
-                    <img src="{{asset('storage/images/stone.jpg')}}" alt="#">
+                    <img src="{{url('images/stone.jpg')}}" alt="#">
                     <div class="content">
                         <p>be natural</p>
                         <h3>stones from the  <br> mines of <span>IRAN</span></h3>
@@ -104,7 +104,7 @@
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
                         <a href="{{url('/products',$product->id)}}" title="{{$product->visited}} view">
-                            <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/',$product->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$product->title}}">
+                            <img src="@if(isset($product->featured_image)){{url('uploads/products/',$product->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$product->title}}">
                         </a>
                         <div class="content">
                             <p class="date">{{$product->created_at}}</p>
@@ -151,7 +151,7 @@
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
                         <a href="{{url('/post',$post->id)}}" title="{{$post->visited}} view">
-                            <img src="@if(isset($post->featured_image)){{asset('storage/images/',$post->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$post->title}}">
+                            <img src="@if(isset($post->featured_image)){{url('images/',$post->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$post->title}}">
                         </a>
                         <div class="content">
                             <p class="date">{{$post->created_at}}</p>
