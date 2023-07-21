@@ -11,37 +11,37 @@
 {{--    <title>{{config('app.name')}} - @yield('title')</title>--}}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{asset('storage/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{url('images/favicon.png')}}">
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
     <!-- StyleSheet -->
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('storage/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url('css/bootstrap.css')}}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{asset('storage/css/magnific-popup.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/magnific-popup.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('storage/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{url('css/font-awesome.css')}}">
     <!-- Fancybox -->
-    <link rel="stylesheet" href="{{asset('storage/css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/jquery.fancybox.min.css')}}">
     <!-- Themify Icons -->
-    <link rel="stylesheet" href="{{asset('storage/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{url('css/themify-icons.css')}}">
     <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="{{asset('storage/css/niceselect.css')}}">
+    <link rel="stylesheet" href="{{url('css/niceselect.css')}}">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{asset('storage/css/animate.css')}}">
+    <link rel="stylesheet" href="{{url('css/animate.css')}}">
     <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="{{asset('storage/css/flex-slider.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/flex-slider.min.css')}}">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{asset('storage/css/owl-carousel.css')}}">
+    <link rel="stylesheet" href="{{url('css/owl-carousel.css')}}">
     <!-- Slicknav -->
-    <link rel="stylesheet" href="{{asset('storage/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/slicknav.min.css')}}">
 
     <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="{{asset('storage/css/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('storage/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('storage/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{url('css/reset.css')}}">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" href="{{url('css/responsive.css')}}">
 
     @yield('style')
 
@@ -102,7 +102,7 @@
                     <div class="col-lg-2 col-md-2 col-12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{asset('storage/images/5.png')}}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img src="{{url('images/5.png')}}" alt="logo"></a>
                         </div>
                         <!--/ End Logo -->
                         <!-- Search Form -->
@@ -332,7 +332,7 @@
                         <!-- Single Widget -->
                         <div class="single-footer about">
                             <div class="logo">
-                                <a href="{{url('/')}}"><img src="{{asset('storage/images/logo2.png')}}" alt="#"></a>
+                                <a href="{{url('/')}}"><img src="{{url('images/logo2.png')}}" alt="#"></a>
                             </div>
                             <p class="text">
                                 We at Exportaworld have provided different products that you may choose your desired quality and quantity. We are not distributor but exporter.
@@ -406,7 +406,7 @@
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="right">
-                                <img src="{{asset('storage/images/payments.png')}}" alt="#">
+                                <img src="{{url('images/payments.png')}}" alt="#">
                             </div>
                         </div>
                     </div>
@@ -418,38 +418,38 @@
 </div>
 
 <!-- Jquery -->
-<script src="{{asset('storage/js/jquery.min.js')}}"></script>
-<script src="{{asset('storage/js/jquery-migrate-3.0.0.js')}}"></script>
-<script src="{{asset('storage/js/jquery-ui.min.js')}}"></script>
+<script src="{{url('js/jquery.min.js')}}"></script>
+<script src="{{url('js/jquery-migrate-3.0.0.js')}}"></script>
+<script src="{{url('js/jquery-ui.min.js')}}"></script>
 <!-- Popper JS -->
-<script src="{{asset('storage/js/popper.min.js')}}"></script>
+<script src="{{url('js/popper.min.js')}}"></script>
 <!-- Bootstrap JS -->
-<script src="{{asset('storage/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('storage/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('js/bootstrap.min.js')}}"></script>
+<script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
 <!-- Color JS -->
-<script src="{{asset('storage/js/colors.js')}}"></script>
+<script src="{{url('js/colors.js')}}"></script>
 <!-- Slicknav JS -->
-<script src="{{asset('storage/js/slicknav.min.js')}}"></script>
+<script src="{{url('js/slicknav.min.js')}}"></script>
 <!-- Owl Carousel JS -->
-<script src="{{asset('storage/js/owl-carousel.js')}}"></script>
+<script src="{{url('js/owl-carousel.js')}}"></script>
 <!-- Magnific Popup JS -->
-<script src="{{asset('storage/js/magnific-popup.js')}}"></script>
+<script src="{{url('js/magnific-popup.js')}}"></script>
 <!-- Waypoints JS -->
-<script src="{{asset('storage/js/waypoints.min.js')}}"></script>
+<script src="{{url('js/waypoints.min.js')}}"></script>
 <!-- Countdown JS -->
-<script src="{{asset('storage/js/finalcountdown.min.js')}}"></script>
+<script src="{{url('js/finalcountdown.min.js')}}"></script>
 <!-- Nice Select JS -->
-<script src="{{asset('storage/js/nicesellect.js')}}"></script>
+<script src="{{url('js/nicesellect.js')}}"></script>
 <!-- Flex Slider JS -->
-<script src="{{asset('storage/js/flex-slider.js')}}"></script>
+<script src="{{url('js/flex-slider.js')}}"></script>
 <!-- ScrollUp JS -->
-<script src="{{asset('storage/js/scrollup.js')}}"></script>
+<script src="{{url('js/scrollup.js')}}"></script>
 <!-- Onepage Nav JS -->
-<script src="{{asset('storage/js/onepage-nav.min.js')}}"></script>
+<script src="{{url('js/onepage-nav.min.js')}}"></script>
 <!-- Easing JS -->
-<script src="{{asset('storage/js/easing.js')}}"></script>
+<script src="{{url('js/easing.js')}}"></script>
 <!-- Active JS -->
-<script src="{{asset('storage/js/active.js')}}"></script>
+<script src="{{url('js/active.js')}}"></script>
 @yield('script')
 
 
