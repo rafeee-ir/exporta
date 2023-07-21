@@ -1,0 +1,6 @@
+{
+    "app" :"exp",
+    "laravel": {
+        "phpVersion": "8.1"
+    }
+}
