@@ -21,4 +21,15 @@ class SiteController extends Controller
     public function about(){
         return view('about');
     }
+
+    Public function search(){
+        // Check for search input
+        if (request('s')) {
+            $products = Product::where('title', 'like', '%' . request('s') . '%')->get();
+        } else {
+            $products = Product::all();
+        }
+
+        return view('search')->with('products', $products);
+    }
 }

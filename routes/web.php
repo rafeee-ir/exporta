@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[SiteController::class,'homepage'])->name('homepage');
+Route::get('/s',[SiteController::class,'search'])->name('search');
 
 Auth::routes();
 //Auth::routes([

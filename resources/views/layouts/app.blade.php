@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-{{--    <title>{{config('app.name')}} - @yield('title')</title>--}}
+    <title>{{config('app.name')}} - @yield('title')</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{url('images/favicon.png')}}">
@@ -110,9 +110,9 @@
                             <div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
                             <!-- Search Form -->
                             <div class="search-top">
-                                <form class="search-form">
-                                    <input type="text" placeholder="Search here..." name="search">
-                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                <form class="search-form" method="GET" action="{{url('/s')}}">
+                                    <input type="text" placeholder="Search here..." name="s" value="{{ request('s') }}">
+                                    <button value="s" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
                             <!--/ End Search Form -->
@@ -139,9 +139,9 @@
 {{--                                    <option>Metals</option>--}}
 {{--                                    <option>Machinery / Electrical</option>--}}
 {{--                                </select>--}}
-                                <form>
-                                    <input name="search" placeholder="Search Products Here..." type="search">
-                                    <button class="btnn"><i class="ti-search"></i></button>
+                                <form method="GET" action="{{url('/s')}}">
+                                    <input name="s" placeholder="Search Products Here..." type="search" value="{{ request('s') }}">
+                                    <button class="btnn" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
                         </div>
