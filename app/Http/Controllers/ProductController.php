@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->where('published',true)->paginate(20);
+        $products = Product::latest()->where('published',true)->with('supplier')->get();
 
         return view('products.index',compact('products'));
     }

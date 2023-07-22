@@ -55,14 +55,14 @@
     </div>
 
 
-        <div class="p-5 bg-light rounded-3" id="products">
+        <div class="py-5 bg-light rounded-3" id="products">
             <div class="container-fluid py-5">
                 <div class="container">
                 <h1 class="display-5 fw-bold mt-5">{{$supplier->title}}'s Products</h1>
                 <div class="row">
                     @forelse($supplier->products as $product)
                         <a href="{{url('/products',$product->slug)}}">
-                        <div class="col-md-4 col-6 mt-4">
+                        <div class="col-md-4 col-12 mt-4">
                             <div class="card h-100">
     {{--                            <img src="https://via.placeholder.com/370x370" class="card-img-top" alt="...">--}}
                                 <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/'.$product->featured_image)}}@else https://placehold.co/300x300?text={{$product->title}} @endif" class="card-img-top" alt="...">

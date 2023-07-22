@@ -43,7 +43,7 @@
                     <div class="content">
                         <p>White Label</p>
                         <h3>Use your <br>own<span> BRAND</span></h3>
-                        <a href="#">Turn on your factory</a>
+                        <a href="/contact">Turn on your factory</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <div class="content">
                         <p>be natural</p>
                         <h3>stones from the  <br> mines of <span>IRAN</span></h3>
-                        <a href="#" class="btn">start Explore</a>
+                        <a href="/products" class="btn">start Explore</a>
                     </div>
                 </div>
             </div>
@@ -73,12 +73,12 @@
             <div class="col-md-8 offset-md-2 col-xs-12">
                 <div class="section-title mb-60">
                     <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Welcome to Exporta</span>
-                    <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Currently You are using <br> very first Version of Exporta.</h2>
+                    <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Currently You are using <br> very first Version of EXPORTAWORLD.</h2>
                     <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
                         Please, contact us for more information</p>
 
                     <div class="button">
-                        <a href="https://wpthemesgrid.com/downloads/eshop-ecommerce-html5-template/" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Purchase Now</a>
+                        <a href="/contact" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Contact Now</a>
                     </div>
                 </div>
             </div>
@@ -103,14 +103,13 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" style="margin-top: 30px">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
-                        <a href="{{url('/products',$product->id)}}" title="{{$product->visited}} view">
-                            <img src="@if(isset($product->featured_image)){{url('uploads/products/',$product->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$product->title}}">
+                        <a href="{{url('/products',$product->id)}}">
+                            <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/'.$product->featured_image)}}@else https://placehold.co/300x300?text={{$product->title}} @endif" alt="{{$product->title}}">
                         </a>
                         <div class="content">
-                            <p class="date">{{$product->created_at}}</p>
                             <a href="{{url('/products',$product->id)}}" class="title">{{$product->title}}</a>
-                            <p class="card-text mb-4">{{strip_tags(Str::limit($product->description,50))}}</p>
-                            <a href="{{url('/products',$product->id)}}" class="more-btn">Continue Reading</a>
+{{--                            <p class="card-text mb-4">{{strip_tags(Str::limit($product->description,50))}}</p>--}}
+{{--                            <a href="{{url('/products',$product->id)}}" class="more-btn">More Detail</a>--}}
                         </div>
                     </div>
                     <!-- End Single Blog  -->
@@ -119,13 +118,13 @@
                     There is no post here
             @endforelse
                 <div class="col-12">
-{{--                    <div class="row justify-content-center">--}}
-{{--                        <div class="col-md-4">--}}
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
                             <div class="text-center">
                                 <a href="{{route('products.index')}}" class="btn btn-primary" type="button">Visit All Products <i class="ti ti-angle-right"></i></a>
                             </div>
-{{--                        </div>--}}
-{{--                    </div>--}}
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>
