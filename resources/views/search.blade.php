@@ -20,7 +20,17 @@
     <!-- End Breadcrumbs -->
 
     <div class="container my-5">
+
+
         <div class="row">
+
+            <div class="col-12">
+                <div class="alert my-5 alert-secondary alert-dismissible fade show" role="alert"><strong>{{$products->count()}}</strong> product(s) with "{{request()->s}}"
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
             @forelse($products as $product)
                 <div class="col-lg-3 col-md-4  mb-3">
                     <a href="{{url('/products',$product->slug)}}">

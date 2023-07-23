@@ -110,7 +110,7 @@
                             <div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
                             <!-- Search Form -->
                             <div class="search-top">
-                                <form class="search-form" method="GET" action="{{url('/s')}}">
+                                <form class="search-form" method="GET" action="{{url('/search')}}">
                                     <input type="text" placeholder="Search here..." name="s" value="{{ request('s') }}">
                                     <button value="s" type="submit"><i class="ti-search"></i></button>
                                 </form>
@@ -139,7 +139,7 @@
 {{--                                    <option>Metals</option>--}}
 {{--                                    <option>Machinery / Electrical</option>--}}
 {{--                                </select>--}}
-                                <form method="GET" action="{{url('/s')}}">
+                                <form method="GET" action="{{url('/search')}}">
                                     <input name="s" placeholder="Search Products Here..." type="search" value="{{ request('s') }}">
                                     <button class="btnn" type="submit"><i class="ti-search"></i></button>
                                 </form>
