@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -46,7 +47,8 @@ class ProductController extends Controller
     public function create()
     {
         $suppliers = Supplier::all();
-        return view('dashboard.products.create',compact('suppliers'));
+        $categories = Category::all();
+        return view('dashboard.products.create',compact('suppliers','categories'));
     }
 
     /**
@@ -54,7 +56,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $input = $request->all();
+//        $input = $request->all();
 
         $request->validate([
             'featured_image' => 'mimes:png,jpg,jpeg|max:2048',
@@ -81,11 +83,34 @@ class ProductController extends Controller
                     }
                 }
             }
-        $input['featured_image'] = $featured_imageName;
-        $input['slider_images'] = implode("|",$slider_images);
-//        dd($request->slider_images);
+//        $input['featured_image'] = $featured_imageName;
+//        $input['slider_images'] = implode("|",$slider_images);
 
-            $product = Product::create($input);
+
+
+
+        $product = new Product();
+        $product->user_id = Auth::id();
+        $product->title = $request->title;
+        $product->featured_image = $featured_imageName;
+        $product->slider_images = implode("|",$slider_images);
+        $product->description = $request->description;
+        $product->supplier_id = $request->supplier_id;
+        $product->minimum_order_qty = $request->minimum_order_qty;
+        $product->production_capacity = $request->production_capacity;
+        $product->sample = $request->sample;
+        $product->price_fob = $request->price_fob;
+        $product->price_currency = $request->price_currency;
+        $product->published = $request->published ?? 0;
+        $product->save();
+
+
+
+
+        $categories  = $request->categories;
+        $product->categories()->attach($categories);
+
+
             activity('Product added')
                 ->performedOn($product)
                 ->log(Auth::user()->name . ' added ' . $product->title . ' as a new product.');
@@ -129,6 +154,7 @@ class ProductController extends Controller
     public function destroy($product)
     {
         $product = Product::find($product);
+        $product->categories()->detach();
         $product->delete();
         activity('Brand deleted')
             ->performedOn($product)

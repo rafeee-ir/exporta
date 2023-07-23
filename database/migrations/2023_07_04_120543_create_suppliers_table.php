@@ -21,9 +21,7 @@ return new class extends Migration
             $table->string('funded_at')->nullable();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
-            $table->string('supplying')->nullable();
             $table->boolean('published')->default(false);
-            $table->bigInteger('visited')->default('0');
             $table->timestamps();
         });
     }

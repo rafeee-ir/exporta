@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('slider_images')->nullable();
             $table->string('slug');
             $table->text('description')->nullable();
-            $table->integer('categories')->nullable();
-            $table->integer('labels')->nullable();
             $table->integer('supplier_id')->default(1);
             $table->string('minimum_order_qty')->nullable();
             $table->string('production_capacity')->nullable();
@@ -28,7 +26,6 @@ return new class extends Migration
             $table->integer('price_fob')->nullable();
             $table->string('price_currency')->default('USD')->nullable();
             $table->boolean('published')->default(false);
-            $table->bigInteger('visited')->default('0');
             $table->timestamps();
         });
     }

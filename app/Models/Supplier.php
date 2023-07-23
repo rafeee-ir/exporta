@@ -42,4 +42,9 @@ class Supplier extends Model
     {
         return $this->hasMany(Product::class)->where('published',true);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }

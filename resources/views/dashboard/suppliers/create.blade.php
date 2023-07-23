@@ -79,10 +79,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="supplying" class="col-form-label">Which kind of products do you have?</label>
-                                            <select class="form-control @if($errors->has('supplying')) border border-danger @endif" id="supplying" name="supplying[]" multiple="multiple">
-                                                <option value="1">bla bla</option>
-                                                <option value="2">bla bla</option>
-                                                <option value="3">bla bla</option>
+                                            <select class="form-control" id="supplying" name="categories[]" multiple aria-label="multiple select example">
+                                                @forelse($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->category}}</option>
+                                                @empty
+                                                    <option>You must add some categories first</option>
+                                                @endforelse
                                             </select>
                                             @if($errors->has('supplying'))
                                                 <small class="text-danger">{{ $errors->first('supplying') }}</small>

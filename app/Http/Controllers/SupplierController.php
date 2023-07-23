@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use App\Http\Requests\StoreSupplierRequest;
@@ -47,7 +48,9 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('dashboard.suppliers.create');
+        $categories = Category::all();
+
+        return view('dashboard.suppliers.create', compact('categories'));
     }
 
     /**
@@ -83,12 +86,24 @@ class SupplierController extends Controller
                 $request['supplying'] = $supplying;
             }
 
-            $supplier = Supplier::create($request->all());
+            $supplier = Supplier::create([
+                'user_id' => Auth::id(),
+                'title' => $request->title,
+                'slogan' => $request->title,
+                'about' => $request->title,
+                'funded_at' => $request->title,
+                'logo' => $logoImageName,
+                'banner' => $bannerImageName,
+                'published' => $request->published ?? 0,
+            ]);
 
 
-            $supplier->logo = $logoImageName;
-            $supplier->banner = $bannerImageName;
-            $supplier->save();
+//            $supplier->logo = $logoImageName;
+//            $supplier->banner = $bannerImageName;
+//            $supplier->save();
+
+            $categories  = $request->categories;
+            $supplier->categories()->attach($categories);
 
             activity('Brand added')
                 ->performedOn($supplier)
@@ -135,6 +150,7 @@ class SupplierController extends Controller
     public function destroy($supplier)
     {
         $supplier = Supplier::find($supplier);
+        $supplier->categories()->detach();
         $supplier->delete();
         activity('Brand deleted')
             ->performedOn($supplier)
