@@ -30,7 +30,9 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = Supplier::latest()->where('published',true)->with('products')->paginate(10);
-        return view('suppliers.index', compact('suppliers'));
+        $categoriesInMenus = $this->categoriesInMenus();
+
+        return view('suppliers.index', compact('suppliers','categoriesInMenus'));
     }
 
     public function dashboard_index()
@@ -121,8 +123,10 @@ class SupplierController extends Controller
     {
 
         $supplier = Supplier::where('slug',$supplier)->with('products')->first();
+        $categoriesInMenus = $this->categoriesInMenus();
+
         if ($supplier->published == true){
-            return view('suppliers.show', compact('supplier'));
+            return view('suppliers.show', compact('supplier','categoriesInMenus'));
         }else{
             return back();
         }

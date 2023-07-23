@@ -13,7 +13,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        $categoriesInMenus = $this->categoriesInMenus();
+
+        return view('contact',compact('categoriesInMenus'));
     }
 
     /**

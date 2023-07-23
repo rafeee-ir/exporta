@@ -29,8 +29,9 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->where('published',true)->with('supplier')->get();
+        $categoriesInMenus = $this->categoriesInMenus();
 
-        return view('products.index',compact('products'));
+        return view('products.index',compact('products','categoriesInMenus'));
     }
     /**
      * Display a listing of the resource.
@@ -129,7 +130,9 @@ class ProductController extends Controller
         $product = Product::where('slug','=',$product)->where('published',true)->with('supplier')->first();
         $slider = array();
         $slider = explode('|',$product->slider_images);
-        return view('products.show', compact('product','slider'));
+        $categoriesInMenus = $this->categoriesInMenus();
+
+        return view('products.show', compact('product','slider','categoriesInMenus'));
     }
 
     /**

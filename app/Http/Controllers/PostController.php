@@ -22,7 +22,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(10);
-        return view('posts.index', compact('posts'));
+        $categoriesInMenus = $this->categoriesInMenus();
+
+        return view('posts.index', compact('posts','categoriesInMenus'));
     }
 
     public function dashboard_index()
