@@ -81,7 +81,7 @@
                                 @if (Route::has('login'))
                                     @auth
                                         <li><i class="ti-dashboard"></i> <a href="{{ url('/dashboard') }}">Dashboard</a></li>
-{{--                                    @else--}}
+                                    @else
                                         <li><i class="ti-power-off"></i><a href="{{ route('login') }}">Login</a></li>
 {{--                                        @if (Route::has('register'))--}}
 {{--                                            <li><i class="ti-user"></i><a href="{{ route('register') }}">Register</a></li>--}}
