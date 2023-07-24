@@ -28,7 +28,7 @@
                 <hr class="w-25">
 {{--                <p>{!! $post->content !!}</p>--}}
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 my-5">
                 <img class="d-block w-100" style="object-fit: cover; aspect-ratio: 16/9"  src="@if(isset($post->image)) {{asset('storage/uploads/posts/'.$post->image)}} @else https://placehold.co/480x270?text={{$post->title}} @endif" alt="{{$post->title}}">
             </div>
             <div class="col-md-8">

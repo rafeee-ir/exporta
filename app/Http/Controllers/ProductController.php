@@ -68,7 +68,7 @@ class ProductController extends Controller
         ]);
 //        try {
             if(isset($request->featured_image)){
-                $featured_imageName = $request->title . '_image_' . rand(1000,9999) . '.' . $request->featured_image->extension();
+                $featured_imageName = 'product_image_' . time() . '.' . $request->featured_image->extension();
                 $request->featured_image->move(public_path('storage/uploads/products'), $featured_imageName);
             }else{
                 $featured_imageName = null;
@@ -78,7 +78,7 @@ class ProductController extends Controller
 
                 if ($files = $request->file('slider_images')) {
                     foreach ($files as $file) {
-                        $slider_imagesNames = $request->title . '_slider_' . rand(1000,9999) . '.' . $file->extension();
+                        $slider_imagesNames = 'product_slider_' . time() . '.' . $file->extension();
                         $file->move(public_path('storage/uploads/products'), $slider_imagesNames);
                         $slider_images[] = $slider_imagesNames;
                     }

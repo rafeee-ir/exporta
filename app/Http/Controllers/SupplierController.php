@@ -70,13 +70,13 @@ class SupplierController extends Controller
 
         try {
             if(isset($request->logo)){
-                $logoImageName = time() . $request->title . '-logo.' . $request->logo->extension();
+                $logoImageName = time() . 'supplier-logo' . time() . '.' . $request->logo->extension();
                 $request->logo->move(public_path('storage/uploads/suppliers'), $logoImageName);
             }else{
                 $logoImageName = null;
             }
             if(isset($request->banner)){
-                $bannerImageName = time() . $request->title . '-banner.' . $request->banner->extension();
+                $bannerImageName = time() . 'supplier-banner' . time() . '.' . $request->banner->extension();
                 $request->banner->move(public_path('storage/uploads/suppliers'), $bannerImageName);
             }else{
                 $bannerImageName = null;

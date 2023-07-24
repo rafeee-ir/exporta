@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -54,19 +55,21 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         if(isset($request->image)){
-            $imageName = $request->title . '_image_' . rand(1000,9999) . '.' . $request->image->extension();
+            $imageName = 'post_image_'. time() . '.' . $request->image->extension();
             $request->image->move(public_path('storage/uploads/posts'), $imageName);
         }else{
             $imageName = null;
         }
-        Post::create([
+        $post = Post::create([
             'user_id' => $request->input('user_id'),
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'published' => $request->input('published') ?? 0,
             'image' => $imageName,
         ]);
-
+        activity('Post added')
+            ->performedOn($post)
+            ->log(Auth::user()->name . ' added ' . $post->title . ' as a new post.');
         return redirect()->route('dashboardposts.index')->with('success', 'Post created successfully!');
     }
 
@@ -96,7 +99,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-
+        activity('Post added')
+            ->performedOn($post)
+            ->log(Auth::user()->name . ' deleted a post');
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
     }
 }
