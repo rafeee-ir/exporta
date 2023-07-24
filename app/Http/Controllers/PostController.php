@@ -33,18 +33,18 @@ class PostController extends Controller
         return view('dashboard.posts.index', compact('posts'));
     }
 
-    public function show($id)
+    public function show($post)
     {
+        $categoriesInMenus = $this->categoriesInMenus();
 
 
-        $post = Post::findOrFail($id);
-        $post->incVisit();
-        return view('posts.show', compact('post'));
+        $post = Post::where('slug',$post)->first();
+        return view('posts.show', compact('post','categoriesInMenus'));
     }
 
     public function create()
     {
-        return view('posts.create');
+        return view('dashboard.posts.create');
     }
 
     public function store(Request $request)
@@ -53,13 +53,21 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-
+        if(isset($request->image)){
+            $imageName = $request->title . '_image_' . rand(1000,9999) . '.' . $request->image->extension();
+            $request->image->move(public_path('storage/uploads/posts'), $imageName);
+        }else{
+            $imageName = null;
+        }
         Post::create([
+            'user_id' => $request->input('user_id'),
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'published' => $request->input('published') ?? 0,
+            'image' => $imageName,
         ]);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
+        return redirect()->route('dashboardposts.index')->with('success', 'Post created successfully!');
     }
 
     public function edit($id)

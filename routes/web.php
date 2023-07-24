@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
@@ -51,10 +52,13 @@ Route::get('products/{product}',[ProductController::class,'show'])->name('produc
 Route::get('brands',[SupplierController::class,'index'])->name('suppliers.index');
 Route::get('brands/{product}',[SupplierController::class,'show'])->name('suppliers.show');
 
-Route::get('posts',[PostController::class,'index'])->name('posts.index');
-Route::get('posts/{product}',[PostController::class,'show'])->name('posts.show');
+Route::get('blog',[PostController::class,'index'])->name('blog.index');
+Route::get('blog/{post}',[PostController::class,'show'])->name('blog.show');
 
 Route::get('faq',[FaqController::class, 'index']);
+
+
+Route::get('cat/{product}',[CategoryController::class,'show'])->name('categories.show');
 
 
 
@@ -93,7 +97,7 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
 
     Route::get('posts', [PostController::class, 'dashboard_index'])->name('posts.index');
     Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('posts/create', [PostController::class, 'store'])->name('posts.store');
+    Route::post('posts', [PostController::class, 'store'])->name('posts.store');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 //    Route::get('users', [UserController::class, 'dashboard_index'])->name('users.index');

@@ -41,7 +41,7 @@
                 <img src="@if(isset($supplier->banner)){{asset('storage/uploads/suppliers/'.$supplier->banner)}}@else https://placehold.co/700x500?text=BRAND20%BANNER @endif" class="d-block mx-lg-auto img-fluid" alt="{{$supplier->title}}" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-                <img class="d-block mb-4" src="@if(isset($supplier->logo)){{asset('storage/uploads/suppliers/'.$supplier->logo)}}@else https://placehold.co/300x300?text=LOGO @endif" alt="" width="72">
+                <img class="d-block mb-4 border border-2 border-dark" src="@if(isset($supplier->logo)){{asset('storage/uploads/suppliers/'.$supplier->logo)}}@else https://placehold.co/300x300?text=LOGO @endif" alt="" width="72">
 
                 <h1 class="display-5 fw-bold lh-1">{{$supplier->title}}</h1>
                 <h3 class="display-6 fw-bold mb-3">{{$supplier->slogan}}</h3>

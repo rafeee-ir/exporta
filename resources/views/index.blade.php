@@ -30,8 +30,6 @@
 </section>
 <!--/ End Slider Area -->
 
-
-
 <!-- Start Midium Banner  -->
 <section class="midium-banner mt-4">
     <div class="container">
@@ -149,14 +147,14 @@
                 <div class="col-lg-4 col-md-6 col-12 mb-4" style="margin-top: 30px">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
-                        <a href="{{url('/post',$post->id)}}" title="{{$post->visited}} view">
-                            <img src="@if(isset($post->featured_image)){{url('images/',$post->featured_image)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$post->title}}">
+                        <a href="{{url('/blog',$post->slug)}}" title="{{$post->title}}">
+                            <img class="d-block w-100" style="object-fit: cover; aspect-ratio: 16/9"  src="@if(isset($post->image)) {{asset('storage/uploads/posts/'.$post->image)}} @else https://placehold.co/480x270?text={{$post->title}} @endif" alt="{{$post->title}}">
                         </a>
                         <div class="content">
-                            <p class="date">{{$post->created_at}}</p>
-                            <a href="{{url('/post',$post->id)}}" class="title">{{$post->title}}</a>
+{{--                            <p class="date">{{$post->created_at}}</p>--}}
+                            <a href="{{url('/blog',$post->slug)}}" class="title">{{$post->title}}</a>
                             <p class="card-text mb-4">{{strip_tags(Str::limit($post->content,50))}}</p>
-                            <a href="{{url('/post',$post->id)}}" class="more-btn">Continue Reading</a>
+{{--                            <a href="{{url('/post',$post->id)}}" class="more-btn">Continue Reading</a>--}}
                         </div>
                     </div>
                     <!-- End Single Blog  -->

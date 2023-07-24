@@ -16,11 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content')->nullable();
-            $table->string('featured_image')->nullable();
-            $table->integer('comments_count')->nullable();
+            $table->string('image')->nullable();
             $table->integer('user_id');
-            $table->bigInteger('visited')->default('0');
-            $table->boolean('published')->default(false);
+            $table->boolean('published')->default(0);
             $table->timestamps();
         });
     }

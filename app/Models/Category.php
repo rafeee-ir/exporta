@@ -30,6 +30,10 @@ class Category extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->where('published',true);
+    }
+    public function suppliers()
+    {
+        return $this->belongsToMany(Supplier::class)->where('published',true);
     }
 }

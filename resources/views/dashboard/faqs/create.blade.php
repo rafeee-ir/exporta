@@ -46,7 +46,7 @@
 
 @endsection
 @section('script')
-    <script src="{{url('storage/assets/js/ckeditor.js')}}"></script>
+    <script src="{{url('assets/js/ckeditor.js')}}"></script>
     <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )

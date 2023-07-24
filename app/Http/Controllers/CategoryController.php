@@ -35,9 +35,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($category)
     {
-        //
+
+        $category = Category::where('slug',$category)->with(['products','suppliers'])->first();
+        $categoriesInMenus = $this->categoriesInMenus();
+//        dd($category->suppliers);
+
+        return view('categories.show',compact('category','categoriesInMenus'));
     }
 
     /**

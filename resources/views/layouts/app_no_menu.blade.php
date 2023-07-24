@@ -1,6 +1,8 @@
 <!doctype html>
 {{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
 <head>
+    @include('layouts.google-tag-head')
+
     <!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,6 +55,8 @@
     {{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
 </head>
 <body>
+@include('layouts.google-tag-body')
+
 <div id="app">
 
     <!-- Header -->

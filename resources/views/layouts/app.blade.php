@@ -1,6 +1,8 @@
 <!doctype html>
 {{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
 <head>
+    @include('layouts.google-tag-head')
+
     <!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,8 +53,11 @@
 
     <!-- Scripts -->
     {{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
+
+
 </head>
 <body>
+@include('layouts.google-tag-body')
 <div id="app">
 
     <!-- Header -->
@@ -208,11 +213,11 @@
                 <div class="cat-nav-head">
                     <div class="row">
                         <div class="col-lg-3">
-                            <div class="all-category">
+                            <div class="all-category @if(url('/')) @else all-category-in-pages @endif">
                                 <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
                                 <ul class="main-category">
                                     @foreach($categoriesInMenus as $category)
-                                        <li><a href="{{url('/category/'.$category->slug)}}">{{$category->category}}</a></li>
+                                        <li><a href="{{url('/cat/'.$category->slug)}}">{{$category->category}}</a></li>
 
                                     @endforeach
 {{--                                    <li><a href="#">Furniture and interior decoration</a></li>--}}
@@ -237,8 +242,9 @@
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                                                <li class="{{ request()->is('brands') ? 'active' : '' }}"><a href="{{ url('/brands') }}">Brands</a></li>
-                                                <li class="{{ request()->is('products') ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>
+                                                <li class="{{ request()->is('brands*') ? 'active' : '' }}"><a href="{{ url('/brands') }}">Brands</a></li>
+                                                <li class="{{ request()->is('products*') ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>
+                                                <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a href="{{ url('/blog') }}">Blog</a></li>
 {{--                                                <li class="{{ request()->is('services') ? 'active' : '' }}"><a href="{{ url('/services') }}">Services</a></li>--}}
                                                 <!-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
                                                     <ul class="dropdown">
@@ -378,7 +384,7 @@
 <script src="{{url('js/bootstrap.min.js')}}"></script>
 <script src="{{url('js/bootstrap.bundle.min.js')}}"></script>
 <!-- Color JS -->
-<script src="{{url('js/colors.js')}}"></script>
+{{--<script src="{{url('js/colors.js')}}"></script>--}}
 <!-- Slicknav JS -->
 <script src="{{url('js/slicknav.min.js')}}"></script>
 <!-- Owl Carousel JS -->

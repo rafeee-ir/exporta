@@ -24,6 +24,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-grid2-thumb"></i><span>Posts</span></a>
                         <ul class="collapse">
                             <li class="{{ request()->is('dashboard/posts') ? 'active' : '' }}"><a href="{{url('dashboard/posts')}}">All Posts</a></li>
+                            <li class="{{ request()->is('dashboard/posts/create') ? 'active' : '' }}"><a href="{{url('dashboard/posts/create')}}">New Post</a></li>
 {{--                            <li><a href="#">New Post</a></li>--}}
 {{--                            <li><a href="#">Categories</a></li>--}}
 {{--                            <li><a href="#">Labels</a></li>--}}

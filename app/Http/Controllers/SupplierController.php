@@ -91,9 +91,9 @@ class SupplierController extends Controller
             $supplier = Supplier::create([
                 'user_id' => Auth::id(),
                 'title' => $request->title,
-                'slogan' => $request->title,
-                'about' => $request->title,
-                'funded_at' => $request->title,
+                'slogan' => $request->slogan,
+                'about' => $request->about,
+                'funded_at' => $request->funded_at,
                 'logo' => $logoImageName,
                 'banner' => $bannerImageName,
                 'published' => $request->published ?? 0,
