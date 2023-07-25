@@ -57,7 +57,7 @@
 
 </head>
 <body>
-@include('layouts.google-tag-body')
+{{--@include('layouts.google-tag-body')--}}
 <div id="app">
 
     <!-- Header -->

@@ -78,7 +78,7 @@ class ProductController extends Controller
 
                 if ($files = $request->file('slider_images')) {
                     foreach ($files as $file) {
-                        $slider_imagesNames = 'product_slider_' . time() . '.' . $file->extension();
+                        $slider_imagesNames = 'product_slider_' . time() . rand(1,10000) . '.' . $file->extension();
                         $file->move(public_path('storage/uploads/products'), $slider_imagesNames);
                         $slider_images[] = $slider_imagesNames;
                     }
@@ -129,7 +129,11 @@ class ProductController extends Controller
     {
         $product = Product::where('slug','=',$product)->where('published',true)->with('supplier')->first();
         $slider = array();
-        $slider = explode('|',$product->slider_images);
+//        if (!empty($product->slider_images) && strpos($product->slider_images,"|") !== false){
+            $slider = explode('|',$product->slider_images);
+//        }else{
+//            $slider = $product->slider_images;
+//        }
         $categoriesInMenus = $this->categoriesInMenus();
 
         return view('products.show', compact('product','slider','categoriesInMenus'));

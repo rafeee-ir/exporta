@@ -40,8 +40,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="about" class="col-form-label">About Brand</label>
-                                    <textarea id="about" name="about" placeholder="Tell people something about your brand..." class="form-control @if($errors->has('about')) border border-danger @endif">{{old('about')}}</textarea>
+                                    <label for="editor" class="col-form-label">About Brand</label>
+                                    <textarea id="editor" name="about" placeholder="Tell people something about your brand..." class="form-control @if($errors->has('about')) border border-danger @endif">{{old('about')}}</textarea>
                                     @if($errors->has('about'))
                                         <small class="text-danger">{{ $errors->first('about') }}</small>
                                     @endif
@@ -121,4 +121,14 @@
         <!-- data table end -->
     </div>
 
+@endsection
+@section('script')
+    <script src="{{url('assets/js/ckeditor.js')}}"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection

@@ -10,7 +10,7 @@
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="{{url('/')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="">Posts</a></li>
+                            <li class="active"><a href="">Blog</a></li>
                         </ul>
                     </div>
                 </div>

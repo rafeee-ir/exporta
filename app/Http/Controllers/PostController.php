@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:post-list|post-create|post-edit|post-delete', ['only' => ['dashboard_index','show']]);
+        $this->middleware('permission:post-list|post-create|post-edit|post-delete', ['only' => ['dashboard_index']]);
         $this->middleware('permission:post-create', ['only' => ['create','store']]);
         $this->middleware('permission:post-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:post-delete', ['only' => ['destroy']]);

@@ -32,7 +32,7 @@
                 <div class="col-md-7">
                     <div class="card-body">
                         <h5 class="card-title">{{$supplier->title}}</h5>
-                        <p class="card-text">{{Str::limit($supplier->about,100)}}</p>
+                        <p class="card-text">{{strip_tags(Str::limit($supplier->about,100))}}</p>
                         <p class="card-text"><small class="text-muted">Funded at {{ date('Y', strtotime($supplier->funded_at))}}</small></p>
                     </div>
                 </div>

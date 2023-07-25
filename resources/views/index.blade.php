@@ -101,11 +101,11 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" style="margin-top: 30px">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
-                        <a href="{{url('/products',$product->id)}}">
+                        <a href="{{url('/products',$product->slug)}}">
                             <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/'.$product->featured_image)}}@else https://placehold.co/300x300?text={{$product->title}} @endif" alt="{{$product->title}}">
                         </a>
                         <div class="content">
-                            <a href="{{url('/products',$product->id)}}" class="title">{{$product->title}}</a>
+                            <a href="{{url('/products',$product->slug)}}" class="title">{{$product->title}}</a>
 {{--                            <p class="card-text mb-4">{{strip_tags(Str::limit($product->description,50))}}</p>--}}
 {{--                            <a href="{{url('/products',$product->id)}}" class="more-btn">More Detail</a>--}}
                         </div>

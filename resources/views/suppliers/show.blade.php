@@ -45,7 +45,7 @@
 
                 <h1 class="display-5 fw-bold lh-1">{{$supplier->title}}</h1>
                 <h3 class="display-6 fw-bold mb-3">{{$supplier->slogan}}</h3>
-                <p class="lead mb-4">{{$supplier->about}}</p>
+                <p class="lead mb-4">{!! $supplier->about !!}</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <a href="#products" type="button" class="btn btn-primary btn-lg px-4 me-md-2"><i class="ti-angle-down"></i> Products</a>
                     <a href="#contact" type="button" class="btn btn-outline-secondary btn-lg px-4"><i class="ti-angle-down"></i> Contact {{$supplier->title}}</a>
