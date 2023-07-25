@@ -4841,39 +4841,39 @@
 	/End 404 Error CSS
 ===============================*/
 
-.free-version-banner {
+.hero-pro-banner {
   position: relative;
   background: #333;
   text-align: center;
   background-color: #F7941D;
-  margin-bottom:100px;
+  /*margin-bottom:100px;*/
 }
 
-.free-version-banner .section-title span {
+.hero-pro-banner .section-title span {
   font-weight: 500;
   text-transform: capitalize;
 }
 
-.free-version-banner .section-title {
+.hero-pro-banner .section-title {
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-.free-version-banner .section-title h2 {
+.hero-pro-banner .section-title h2 {
   padding-bottom: 15px;
 }
 
-.free-version-banner .section-title h2::before {
+.hero-pro-banner .section-title h2::before {
   background-color: #fff;
 }
 
-.free-version-banner .button {
+.hero-pro-banner .button {
   z-index: 5;
   margin-top: 40px;
 }
 
-.free-version-banner .button .btn {
+.hero-pro-banner .button .btn {
   background-color: #fff;
   color: #333;
   text-transform:capitalize;

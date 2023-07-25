@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Slider Area -->
-<section class="hero-slider">
+<section class="hero-slider d-none d-md-block">
     <!-- Single Slider -->
     <div class="single-slider">
         <div class="container">
@@ -65,7 +65,7 @@
 
 
 
-<section class="section free-version-banner" style="margin-top: 200px;">
+<section class="section hero-pro-banner mt-3 mt-md-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8 offset-md-2 col-xs-12">
@@ -96,9 +96,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="owl-carousel">
+
             @forelse($products as $product)
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" style="margin-top: 30px">
+                <div class="my-4">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
                         <a href="{{url('/products',$product->slug)}}">
@@ -115,6 +116,7 @@
             @empty
                     There is no post here
             @endforelse
+        </div>
                 <div class="col-12">
                     <div class="row justify-content-center">
                         <div class="col-md-4">
@@ -142,9 +144,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="owl-carousel-blog">
             @forelse($posts as $post)
-                <div class="col-lg-4 col-md-6 col-12 mb-4" style="margin-top: 30px">
+                <div class="my-4">
                     <!-- Start Single Blog  -->
                     <div class="shop-single-blog">
                         <a href="{{url('/blog',$post->slug)}}" title="{{$post->title}}">
@@ -214,4 +216,58 @@
 <!-- End Shop Services Area -->
 
 @include('newsletter')
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                loop:true,
+                // animateOut: 'fadeOut',
+                // animateIn: 'slideInRight',
+                items:1,
+                stagePadding:50,
+                smartSpeed:450,
+                margin:20,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:3
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+            });
+            $(".owl-carousel-blog").owlCarousel({
+                loop:true,
+                // animateOut: 'fadeOut',
+                // animateIn: 'slideInRight',
+                items:1,
+                stagePadding:50,
+                smartSpeed:450,
+                margin:20,
+                autoplay:true,
+                autoplayTimeout:5000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            });
+        });
+    </script>
+
+
 @endsection

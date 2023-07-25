@@ -63,9 +63,9 @@
     <!-- Header -->
     <header class="header shop">
         <!-- Topbar -->
-        <div class="topbar">
+        <div class="topbar pt-0">
             <div class="container">
-                <div class="row">
+                <div class="row d-none d-md-block">
                     <div class="col-lg-5 col-md-12 col-12">
                         <!-- Top Left -->
                         <div class="top-left">
