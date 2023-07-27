@@ -30,9 +30,9 @@
                 <h2>{{$category->suppliers->count()}} Brand<small>s of {{$category->category}}</small></h2>
             </div>
             <div class="col-12">
-                <div class="owl-carousel">
+                <div class="owl-carousel mb-3">
                     @forelse($category->suppliers as $supplier)
-                        <div class="col-md-6 mb-3">
+                        <div class="" style="width: 160px">
                             <a href="{{url('/brands',$supplier->slug)}}" title="{{$supplier->title}}">
                                 <img src="@if(isset($supplier->logo)){{asset('storage/uploads/suppliers/'.$supplier->logo)}}@else https://via.placeholder.com/370x370 @endif" alt="{{$supplier->title}}">
                             </a>
@@ -62,7 +62,7 @@
                             <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/'.$product->featured_image)}}@else https://placehold.co/300x300?text={{$product->title}} @endif" alt="{{$product->title}}" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->title}}</h5>
-                                <p class="card-text">{{Str::limit($product->description,100)}}</p>
+                                <p class="card-text">{{strip_tags(Str::limit($product->description,100))}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Price (FOB): {{$product->price_fob}}{{$product->price_currency}}</li>
@@ -87,7 +87,29 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $(".owl-carousel").owlCarousel();
+            $(".owl-carousel").owlCarousel({
+                loop:true,
+                // animateOut: 'fadeOut',
+                // animateIn: 'slideInRight',
+                items:1,
+                // stagePadding:50,
+                smartSpeed:450,
+                margin:20,
+                autoplay:true,
+                autoplayTimeout:5000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{
+                        items:2
+                    },
+                    600:{
+                        items:4
+                    },
+                    1000:{
+                        items:7
+                    }
+                }
+            });
         });
     </script>
 

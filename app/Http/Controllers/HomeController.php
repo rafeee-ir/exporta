@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Supplier;
@@ -30,10 +31,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//            activity('Visit')
-//                ->performedOn(Product::all()->get())
-//                ->causedBy(Auth::user())
-//                ->log('Visit Dashboard');
         $activities = Activity::where('causer_id',Auth::id())->latest()->limit(10)->get();
         foreach ($activities as $activity){
             $date = new Carbon($activity->created_at);
@@ -43,7 +40,8 @@ class HomeController extends Controller
         $suppliers_count = Supplier::all()->where('published',true)->where('user_id',Auth::id())->count();
         $products_count = Product::all()->where('published',true)->where('user_id',Auth::id())->count();
         $posts_count = Post::all()->where('published',true)->where('user_id',Auth::id())->count();
-        return view('dashboard.dashboard',compact('activities','posts_count','products_count','users_count','suppliers_count'));
+        $contacts_count = Contact::all()->count();
+        return view('dashboard.dashboard',compact('activities','posts_count','products_count','users_count','suppliers_count','contacts_count'));
     }
 
     public function dashboard_notifications()

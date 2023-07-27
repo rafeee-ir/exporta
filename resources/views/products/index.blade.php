@@ -28,7 +28,7 @@
                             <img src="@if(isset($product->featured_image)){{asset('storage/uploads/products/'.$product->featured_image)}}@else https://placehold.co/300x300?text={{$product->title}} @endif" alt="{{$product->title}}" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->title}}</h5>
-                                <p class="card-text">{{Str::limit($product->description,100)}}</p>
+                                <p class="card-text">{{strip_tags(Str::limit($product->description,100))}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Price (FOB): {{$product->price_fob}}{{$product->price_currency}}</li>

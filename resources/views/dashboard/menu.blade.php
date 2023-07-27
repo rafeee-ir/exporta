@@ -82,6 +82,15 @@
                         </ul>
                     </li>
                     @endcan
+                    @can('contact-list')
+                    <li class="{{ request()->is('dashboard/contacts*') ? 'active' : '' }}">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-envelope"></i><span>Contacts</span></a>
+                        <ul class="collapse">
+                            <li class="{{ request()->is('dashboard/contacts') ? 'active' : '' }}"><a href="{{url('dashboard/contacts')}}">All Contacts</a></li>
+                        </ul>
+                    </li>
+                    @endcan
+
 {{--                    <li>--}}
 {{--                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-settings"></i><span>Setting</span></a>--}}
 {{--                        <ul class="collapse">--}}

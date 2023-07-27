@@ -100,6 +100,11 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
     Route::post('posts', [PostController::class, 'store'])->name('posts.store');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+    Route::get('contacts', [ContactController::class, 'dashboard_index'])->name('contacts.index');
+    Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+    Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
+    Route::delete('contacts/{post}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
 //    Route::get('users', [UserController::class, 'dashboard_index'])->name('users.index');
 //    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
 //    Route::post('users/create', [UserController::class, 'store'])->name('users.store');
