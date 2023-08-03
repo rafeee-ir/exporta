@@ -96,7 +96,9 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
     Route::delete('faqs/{faq}', [FaqController::class, 'destroy'])->name('faqs.destroy');
 
     Route::get('posts', [PostController::class, 'dashboard_index'])->name('posts.index');
+    Route::patch('posts/{id}/edit', [PostController::class, 'update'])->name('posts.update');
     Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::post('posts', [PostController::class, 'store'])->name('posts.store');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 

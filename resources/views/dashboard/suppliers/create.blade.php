@@ -95,7 +95,7 @@
                                         <div class="form-group">
                                             <label for="published" class="col-form-label">Publish now?</label>
                                             <div class="form-check">
-                                                <input class="form-check-input @if($errors->has('published')) border border-danger @endif" type="checkbox" value="1" name="published" id="published">
+                                                <input onclick="checkboxHelper(this)"  class="form-check-input @if($errors->has('published')) border border-danger @endif" type="checkbox" value="1" name="published" id="published">
                                                 <label class="form-check-label" for="published">
                                                     Publish
                                                 </label>
@@ -130,5 +130,14 @@
             .catch( error => {
                 console.error( error );
             } );
+    </script>
+    <script>
+        const checkboxHelper = checkbox => {
+            if(document.getElementById('published').value==1){
+                document.getElementById('published').value=0;
+            }else{
+                document.getElementById('published').value=1;
+            }
+        }
     </script>
 @endsection

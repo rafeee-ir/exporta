@@ -34,10 +34,10 @@
 {{--                                    <td>{{$user->email}}</td>--}}
                                     <td><span class="status-p bg-info">{{$product->created_at}}</span></td>
                                     <td>
-                                        <form action="{{ route('dashboardproducts.destroy',$product->id) }}" method="POST" class="visually-hidden">
+                                        <form action="{{ route('dashboardproducts.destroy',$product->id) }}" method="POST" class="visually-hidden"  onSubmit="if(!confirm('Are you sure?')){return false;}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="confirm('Are you sure?')" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

@@ -33,11 +33,8 @@ class Post extends Model
     {
         return 'slug';
     }
-
-    // Define any relationships with other models
-    // For example:
-    // public function comments()
-    // {
-    //     return $this->hasMany(Comment::class);
-    // }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

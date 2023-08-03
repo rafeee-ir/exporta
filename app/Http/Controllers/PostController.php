@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,11 @@ class PostController extends Controller
 
     public function dashboard_index()
     {
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->with('user')->paginate(10);
+        foreach ($posts as $post){
+            $date = new Carbon($post->created_at);
+            $post->diff = $date->diffForHumans(Carbon::now());
+        }
         return view('dashboard.posts.index', compact('posts'));
     }
 
@@ -77,10 +82,10 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('posts.edit', compact('post'));
+        return view('dashboard.posts.edit', compact('post'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $request->validate([
             'title' => 'required',
@@ -90,9 +95,10 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->title = $request->input('title');
         $post->content = $request->input('content');
+        $post->published = $request->input('published') ?? 0;
         $post->save();
 
-        return redirect()->route('posts.show', $id)->with('success', 'Post updated successfully!');
+        return redirect()->back()->with('success', 'Post updated successfully!');
     }
 
     public function destroy($id)
@@ -102,6 +108,6 @@ class PostController extends Controller
         activity('Post added')
             ->performedOn($post)
             ->log(Auth::user()->name . ' deleted a post');
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
+        return redirect()->back()->with('success', 'Post deleted successfully!');
     }
 }

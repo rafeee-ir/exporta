@@ -10,28 +10,40 @@
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    {{--                    <h4 class="header-title">{{$users_count}} users</h4>--}}
                     <div class="data-tables datatable-dark">
                         <table id="dataTable" class="text-center">
                             <thead class="text-capitalize">
                             <tr>
-                                <th>ID</th>
+                                <th>date</th>
                                 <th>Title</th>
-{{--                                <th>Email</th>--}}
-                                <th>Added on</th>
-                                <th>action</th>
-                                {{--                                <th></th>--}}
+                                <th>by</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($posts as $post)
                                 <tr>
-                                    <th scope="row">{{$post->id}}</th>
+                                    <td><span class="badge">{{$post->diff}}</span></td>
                                     <td>{{$post->title}}</td>
-{{--                                    <td>{{$user->email}}</td>--}}
-                                    <td><span class="status-p bg-info">{{$post->created_at}}</span></td>
-                                    <td>Edit-Delete</td>
-                                    {{--                                <td>$433,060</td>--}}
+                                    <td>{{$post->user->name}}</td>
+                                    <td>
+
+                                        <form action="{{ route('dashboardposts.destroy',$post->id) }}" method="POST" class="visually-hidden"  onSubmit="if(!confirm('Are you sure?')){return false;}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="action-button-group">
+                                                <a href="{{route('blog.show',$post->slug)}}" target="_blank" type="button" class="btn btn-outline-secondary" title="visit {{$post->title}}"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('dashboardposts.update',$post->id)}}" type="button" class="btn btn-warning" title="Edit {{$post->title}}"><i class="fa fa-pencil"></i></a>
+                                                <button type="submit" class="btn btn-danger" title="Delete {{$post->title}}"><i class="fa fa-trash"></i></button>
+                                            </div>
+                                        </form>
+
+
+                                    </td>
+                                    <td>
+                                        {!! $post->content !!}
+                                    </td>
                                 </tr>
                             @empty
                                 There is no Posts!

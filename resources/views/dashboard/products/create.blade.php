@@ -98,7 +98,7 @@
                                         <div class="form-group">
                                             <label for="published" class="col-form-label">Publish now?</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="published" name="published" value="1">
+                                                <input onclick="checkboxHelper(this)"  class="form-check-input" type="checkbox" id="published" name="published" value="1">
                                                 <label class="form-check-label" for="published">
                                                     Publish
                                                 </label>
@@ -131,5 +131,13 @@
                 console.error( error );
             } );
     </script>
-
+    <script>
+        const checkboxHelper = checkbox => {
+            if(document.getElementById('published').value==1){
+                document.getElementById('published').value=0;
+            }else{
+                document.getElementById('published').value=1;
+            }
+        }
+    </script>
 @endsection
