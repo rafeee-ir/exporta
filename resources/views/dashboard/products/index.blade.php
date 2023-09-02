@@ -31,7 +31,7 @@
                                 <tr>
                                     <th scope="row">{{$product->id}}</th>
                                     <td>{{$product->title}}</td>
-{{--                                    <td>{{$user->email}}</td>--}}
+{{--                                    <td>{{$user->emails}}</td>--}}
                                     <td><span class="status-p bg-info">{{$product->created_at}}</span></td>
                                     <td>
                                         <form action="{{ route('dashboardproducts.destroy',$product->id) }}" method="POST" class="visually-hidden"  onSubmit="if(!confirm('Are you sure?')){return false;}">

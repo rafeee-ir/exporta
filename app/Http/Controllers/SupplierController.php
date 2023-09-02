@@ -64,8 +64,7 @@ class SupplierController extends Controller
             'logo' => 'mimes:png,jpg,jpeg|max:2048|dimensions:ratio=1/1',
             'banner' => 'mimes:png,jpg,jpeg|max:2048|dimensions:width=700,height=500',
             'title' => 'required',
-            'about' => 'required|min:50',
-            'slogan' => 'min:10'
+            'about' => 'required|min:50'
         ]);
 
         try {

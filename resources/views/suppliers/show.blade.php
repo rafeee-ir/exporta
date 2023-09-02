@@ -36,8 +36,8 @@
 
     <div class="container col-xxl-8 px-4 py-5">
         @include('form-alerts')
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-md-5">
+            <div class="col-12 col-sm-8 col-lg-6 d-none d-md-block">
                 <img src="@if(isset($supplier->banner)){{asset('storage/uploads/suppliers/'.$supplier->banner)}}@else https://placehold.co/700x500?text=BRAND20%BANNER @endif" class="d-block mx-lg-auto img-fluid" alt="{{$supplier->title}}" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
@@ -45,10 +45,12 @@
 
                 <h1 class="display-5 fw-bold lh-1">{{$supplier->title}}</h1>
                 <h3 class="display-6 fw-bold mb-3">{{$supplier->slogan}}</h3>
-                <p class="lead mb-4">{!! $supplier->about !!}</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="#products" type="button" class="btn btn-primary btn-lg px-4 me-md-2"><i class="ti-angle-down"></i> Products</a>
-                    <a href="#contact" type="button" class="btn btn-outline-secondary btn-lg px-4"><i class="ti-angle-down"></i> Contact {{$supplier->title}}</a>
+                <img src="@if(isset($supplier->banner)){{asset('storage/uploads/suppliers/'.$supplier->banner)}}@else https://placehold.co/700x500?text=BRAND20%BANNER @endif" class="d-block d-md-none mx-lg-auto img-fluid" alt="{{$supplier->title}}" width="700" height="500" loading="lazy">
+
+                <p class="lead my-4">{!! $supplier->about !!}</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#products" type="button" class="btn btn-primary px-4 me-md-2"><i class="ti-angle-down"></i> Products</a>
+                    <a href="#contact" type="button" class="btn btn-outline-secondary px-4"><i class="ti-angle-down"></i> Contact<span class="d-none d-md-inline"> {{$supplier->title}}</span></a>
                 </div>
             </div>
         </div>
@@ -119,7 +121,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email" class="form-label">Your Email<span>*</span></label>
-                                            <input value="{{old('email')}}" type="email" class="form-control @if($errors->has('email')) border border-danger @endif" id="email" name="email" placeholder="info@exportaworld.com">
+                                            <input value="{{old('emails')}}" type="email" class="form-control @if($errors->has('emails')) border border-danger @endif" id="email" name="email" placeholder="info@exportaworld.com">
                                             <small class="text-light">*Required</small>
                                         </div>
                                     </div>

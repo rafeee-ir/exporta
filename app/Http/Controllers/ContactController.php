@@ -66,7 +66,7 @@ class ContactController extends Controller
     {
         try {
             $request->validate([
-                'email' => 'required|email',
+                'emails' => 'required|emails',
                 'message' => 'required|min:10'
             ]);
 

@@ -28,7 +28,7 @@
 {{--                                <tr>--}}
 {{--                                <th scope="row">{{$user->id}}</th>--}}
 {{--                                <td>{{$user->name}}</td>--}}
-{{--                                <td>{{$user->email}}</td>--}}
+{{--                                <td>{{$user->emails}}</td>--}}
 {{--                                <td><span class="status-p bg-info">{{$user->created_at}}</span></td>--}}
 {{--                                <td>Edit-Delete</td>--}}
 {{--                                <td>$433,060</td>--}}

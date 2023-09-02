@@ -70,7 +70,7 @@
 {{--                        <i class="fa fa-envelope"></i>--}}
 {{--                    </div>--}}
 {{--                    <div class="tm-title">--}}
-{{--                        <h4>Ratul Hamba sent you an email</h4>--}}
+{{--                        <h4>Ratul Hamba sent you an emails</h4>--}}
 {{--                        <span class="time"><i class="ti-time"></i>09:35</span>--}}
 {{--                    </div>--}}
 {{--                    <p>Hello sir , where are you, i am egerly waiting for you.--}}
@@ -81,7 +81,7 @@
 {{--                        <i class="fa fa-exclamation-triangle"></i>--}}
 {{--                    </div>--}}
 {{--                    <div class="tm-title">--}}
-{{--                        <h4>Rashed sent you an email</h4>--}}
+{{--                        <h4>Rashed sent you an emails</h4>--}}
 {{--                        <span class="time"><i class="ti-time"></i>09:35</span>--}}
 {{--                    </div>--}}
 {{--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.--}}
@@ -92,7 +92,7 @@
 {{--                        <i class="fa fa-exclamation-triangle"></i>--}}
 {{--                    </div>--}}
 {{--                    <div class="tm-title">--}}
-{{--                        <h4>Rashed sent you an email</h4>--}}
+{{--                        <h4>Rashed sent you an emails</h4>--}}
 {{--                        <span class="time"><i class="ti-time"></i>09:35</span>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
@@ -101,7 +101,7 @@
 {{--                        <i class="fa fa-bomb"></i>--}}
 {{--                    </div>--}}
 {{--                    <div class="tm-title">--}}
-{{--                        <h4>Rashed sent you an email</h4>--}}
+{{--                        <h4>Rashed sent you an emails</h4>--}}
 {{--                        <span class="time"><i class="ti-time"></i>09:35</span>--}}
 {{--                    </div>--}}
 {{--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.--}}
@@ -112,7 +112,7 @@
 {{--                        <i class="ti-signal"></i>--}}
 {{--                    </div>--}}
 {{--                    <div class="tm-title">--}}
-{{--                        <h4>Rashed sent you an email</h4>--}}
+{{--                        <h4>Rashed sent you an emails</h4>--}}
 {{--                        <span class="time"><i class="ti-time"></i>09:35</span>--}}
 {{--                    </div>--}}
 {{--                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.--}}
@@ -152,7 +152,7 @@
 {{--                                <label for="switch3">Toggle</label>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-{{--                        <p>Show email so that easily find you.</p>--}}
+{{--                        <p>Show emails so that easily find you.</p>--}}
 {{--                    </div>--}}
 {{--                    <div class="s-settings">--}}
 {{--                        <div class="s-sw-title">--}}

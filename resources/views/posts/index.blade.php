@@ -147,7 +147,7 @@
 {{--                            <div class="letter-inner">--}}
 {{--                                <h4>Subscribe & get news <br> latest updates.</h4>--}}
 {{--                                <div class="form-inner">--}}
-{{--                                    <input type="email" placeholder="Enter your email">--}}
+{{--                                    <input type="emails" placeholder="Enter your emails">--}}
 {{--                                    <a href="#">Submit</a>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}

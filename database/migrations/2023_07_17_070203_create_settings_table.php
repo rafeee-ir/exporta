@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->nullable();
+            $table->string('emails')->nullable();
             $table->string('logo')->nullable();
             $table->boolean('can_login')->nullable();
             $table->boolean('can_register')->nullable();

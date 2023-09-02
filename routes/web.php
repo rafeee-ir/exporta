@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Route::get('/send-email', [EmailController::class, 'index']);
 
 Route::get('/',[SiteController::class,'homepage'])->name('homepage');
 Route::get('/search',[SiteController::class,'search'])->name('search');

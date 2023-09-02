@@ -32,10 +32,10 @@ class NewsletterController extends Controller
 
         try {
             $request->validate([
-                'email' => [
+                'emails' => [
                     'required',
-                    'email',
-                    'unique:newsletters,email',
+                    'emails',
+                    'unique:newsletters,emails',
                 ],
             ]);
 
@@ -44,9 +44,9 @@ class NewsletterController extends Controller
             activity('Newsletter added')
                 ->performedOn($newsletter)
                 ->log($newsletter->email . ' added to newsletter list.');
-            return redirect(url()->previous() . '#newsletter')->with('success', 'Your email added to newsletter list successfully.');
+            return redirect(url()->previous() . '#newsletter')->with('success', 'Your emails added to newsletter list successfully.');
         } catch (\Exception $e) {
-            return redirect(url()->previous() . '#newsletter')->with('error','Your email is already registered!');
+            return redirect(url()->previous() . '#newsletter')->with('error','Your emails is already registered!');
         }
     }
 

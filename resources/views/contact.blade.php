@@ -53,7 +53,7 @@
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Your Email<span>*</span></label>
-                                            <input class="@if($errors->has('email')) border border-danger @endif" name="email" type="email" placeholder="" value="{{old('email')}}">
+                                            <input class="@if($errors->has('emails')) border border-danger @endif" name="email" type="email" placeholder="" value="{{old('emails')}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">

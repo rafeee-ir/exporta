@@ -115,7 +115,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Your Email<span>*</span></label>
-                                        <input value="{{old('email')}}" type="email" class="form-control @if($errors->has('email')) border border-danger @endif" id="email" name="email" placeholder="info@exportaworld.com">
+                                        <input value="{{old('emails')}}" type="email" class="form-control @if($errors->has('emails')) border border-danger @endif" id="email" name="email" placeholder="info@exportaworld.com">
                                         <small class="text-light">*Required</small>
                                     </div>
                                 </div>

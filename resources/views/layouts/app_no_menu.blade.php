@@ -70,7 +70,7 @@
 {{--                        <div class="top-left">--}}
 {{--                            <ul class="list-main">--}}
 {{--                                --}}{{--                                <li><i class="ti-headphone-alt"></i> Soon</li>--}}
-{{--                                <li><a href="{{url('contact')}}"><i class="ti-email"></i> info@exporta.com</a></li>--}}
+{{--                                <li><a href="{{url('contact')}}"><i class="ti-emails"></i> info@exporta.com</a></li>--}}
 {{--                            </ul>--}}
 {{--                        </div>--}}
 {{--                        <!--/ End Top Left -->--}}

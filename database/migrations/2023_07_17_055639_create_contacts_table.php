@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('subject')->nullable();
             $table->string('mobile')->nullable();
-            $table->string('email');
+            $table->string('emails');
             $table->text('message');
             $table->text('url')->nullable();
             $table->timestamps();
