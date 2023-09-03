@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Specification;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Auth;
 
@@ -127,7 +128,7 @@ class ProductController extends Controller
      */
     public function show($product)
     {
-        $product = Product::where('slug','=',$product)->where('published',true)->with('supplier')->first();
+        $product = Product::where('slug','=',$product)->where('published',true)->with('supplier')->with('specifications')->first();
         $slider = array();
 //        if (!empty($product->slider_images) && strpos($product->slider_images,"|") !== false){
             $slider = explode('|',$product->slider_images);
@@ -135,6 +136,7 @@ class ProductController extends Controller
 //            $slider = $product->slider_images;
 //        }
         $categoriesInMenus = $this->categoriesInMenus();
+
 
         return view('products.show', compact('product','slider','categoriesInMenus'));
     }

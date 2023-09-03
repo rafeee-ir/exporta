@@ -30,6 +30,30 @@
                 <h3 class="text-info">{{$product->price_fob}}<small>{{$product->price_currency}} FOB</small></h3>
                 <hr class="w-25">
                 <p>{!! $product->description !!}</p>
+                @if(count($product->specifications)>0)
+                        <div class="mt-4">
+                            <hr class="w-25">
+                                                <h5>{{$product->title}} Specifications</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>Title</td>
+                                    <td>Description</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($product->specifications as $item)
+                                    <tr>
+                                        <td>{{$item->title}}</td>
+                                        <td>{!! $item->description !!}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+
+                            </table>
+                        </div>
+                @endif
+
             </div>
             <div class="col-md-4 ">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

@@ -51,4 +51,9 @@ class Supplier extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function specifications(): HasMany
+    {
+        return $this->hasMany(Specification::class);
+    }
 }

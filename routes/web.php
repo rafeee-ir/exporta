@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\SpecificationController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Models\Post;
@@ -91,6 +92,10 @@ Route::name('dashboard')->prefix('dashboard')->middleware('auth')->group(functio
     Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('products/create', [ProductController::class, 'store'])->name('products.store');
     Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+    Route::get('specifications/create', [SpecificationController::class, 'create'])->name('specifications.create');
+    Route::post('specifications/create', [SpecificationController::class, 'store'])->name('specifications.store');
+    Route::delete('specifications/{product}', [SpecificationController::class, 'destroy'])->name('specifications.destroy');
 
     Route::get('faqs', [FaqController::class, 'dashboard_index'])->name('faqs.index');
     Route::get('faqs/create', [FaqController::class, 'create'])->name('faqs.create');
