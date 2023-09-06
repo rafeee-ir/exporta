@@ -34,13 +34,13 @@
                         <div class="mt-4">
                             <hr class="w-25">
                                                 <h5>{{$product->title}} Specifications</h5>
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <td>Title</td>
-                                    <td>Description</td>
-                                </tr>
-                                </thead>
+                            <table class="table table-striped mt-3">
+{{--                                <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <td>Title</td>--}}
+{{--                                    <td>Description</td>--}}
+{{--                                </tr>--}}
+{{--                                </thead>--}}
                                 <tbody>
                                 @foreach($product->specifications as $item)
                                     <tr>
@@ -63,23 +63,27 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        @if(isset($product->featured_image))
+{{--                        @if(isset($product->featured_image))--}}
                             <div class="carousel-item active border">
                                 <img src="{{asset('storage/uploads/products/'.$product->featured_image)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title.' image'}}">
                             </div>
-                            @foreach($slider as $slide)
-                                <div class="carousel-item border">
-                                    <img src="{{asset('storage/uploads/products/'.$slide)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title}}">
-                                </div>
-                            @endforeach
-                            <div class="carousel-item border">
-                                <img src="{{asset('storage/uploads/products/'.$product->featured_image)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title.' image'}}">
-                            </div>
-                        @else
-                            <div class="carousel-item active border">
-                                <img src="https://placehold.co/300x300?text={{$product->title}}" class="d-block w-100">
-                            </div>
-                        @endif
+{{--                            @forelse($slider as $slide)--}}
+{{--                                <div class="carousel-item border">--}}
+{{--                                    <img src="{{asset('storage/uploads/products/'.$slide)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title}}">--}}
+{{--                                </div>--}}
+{{--                            @empty--}}
+{{--                                <div class="carousel-item border">--}}
+{{--                                    <img src="{{asset('storage/uploads/products/'.$product->featured_image)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title.' image'}}">--}}
+{{--                                </div>--}}
+{{--                            @endforelse--}}
+{{--                            <div class="carousel-item border">--}}
+{{--                                <img src="{{asset('storage/uploads/products/'.$product->featured_image)}}" class="d-block w-100" style="object-fit: cover;aspect-ratio: 1" alt="{{$product->title.' image'}}">--}}
+{{--                            </div>--}}
+{{--                        @else--}}
+{{--                            <div class="carousel-item active border">--}}
+{{--                                <img src="https://placehold.co/300x300?text={{$product->title}}" class="d-block w-100">--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
 
                     </div>
                 </div>
@@ -94,11 +98,13 @@
                 <hr class="w-25">
             </div>
             <div class="coll-12">
-                <div class="row">
+                <div class="row gap-3">
                     @foreach($slider as $slide)
 
                     <div class="col-md-4">
-                        <img src="{{asset('storage/uploads/products/'.$slide)}}" class="d-block w-100" style="border: 10px solid white;object-fit: cover;aspect-ratio: 1" alt="{{$product->title}}">
+                        <a href="{{asset('storage/uploads/products/'.$slide)}}" target="_blank">
+                            <img src="{{asset('storage/uploads/products/'.$slide)}}" class="d-block w-100" style="border: 10px solid white;object-fit: cover;aspect-ratio: 1" alt="{{$product->title}}">
+                        </a>
                     </div>
                     @endforeach
                 </div>

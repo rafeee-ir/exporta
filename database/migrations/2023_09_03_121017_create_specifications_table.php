@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->text('description');
+            $table->integer('ordered')->default(0);
             $table->timestamps();
         });
     }
