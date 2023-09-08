@@ -1,5 +1,5 @@
 <!doctype html>
-{{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('layouts.google-tag-head')
 
@@ -334,7 +334,7 @@
                                     3 Jacinth Court, Huddersfield, West Yorkshire, HD2 1DT
                                     <li>3 Jacinth Court, Huddersfield,</li>
                                     <li>West Yorkshire, HD2 1DT</li>
-                                    <li><a href="mailto=info@exportaworld.com">info@exportaworld.com</a></li>
+                                    <li><a href="mailto:info@exportaworld.com">info@exportaworld.com</a></li>
 {{--                                    <li>+032 3456 1111</li>--}}
                                 </ul>
                             </div>
