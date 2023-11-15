@@ -13,7 +13,7 @@ class SiteController extends Controller
     public function homepage(){
         $set = $this->setting();
         $posts = Post::where('published',true)->latest()->take(3)->get();
-        $products = Product::where('published',true)->latest()->take(4)->get();
+        $products = Product::where('published',true)->latest()->take(15)->get();
         $products_count = Product::all()->where('published',true)->count();
         $categoriesInMenus = $this->categoriesInMenus();
         return view('index',
